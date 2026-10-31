@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,671 +10,337 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
 
-:root {
-    --gold:#d5b477;
-    --gold-light:#f5dfad;
-    --gold-dark:#806239;
-    --black:#080609;
-    --wine:#390d19;
-    --cream:#eee2cc;
+:root{
+--gold:#d5b477;
+--gold-light:#f5dfad;
+--gold-dark:#806239;
+--black:#080609;
+--wine:#390d19;
+--cream:#eee2cc;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-
 html{scroll-behavior:smooth}
-
-body{
-    background:var(--black);
-    color:var(--cream);
-    font-family:'Cormorant Garamond',serif;
-    overflow-x:hidden;
-}
-
+body{background:var(--black);color:var(--cream);font-family:'Cormorant Garamond',serif;overflow-x:hidden}
 button{font-family:inherit}
 
 .ambience{
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    z-index:0;
-    background:
-      radial-gradient(ellipse at 50% 45%,rgba(116,68,35,.14),transparent 55%),
-      radial-gradient(ellipse at 50% 100%,rgba(85,14,31,.18),transparent 60%);
+position:fixed;inset:0;pointer-events:none;z-index:0;
+background:radial-gradient(ellipse at 50% 45%,rgba(116,68,35,.14),transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(85,14,31,.18),transparent 60%);
 }
 
-.particles{
-    position:fixed;
-    inset:0;
-    overflow:hidden;
-    pointer-events:none;
-    z-index:1;
-}
-
+.particles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
 .particle{
-    position:absolute;
-    width:3px;
-    height:3px;
-    background:var(--gold-light);
-    border-radius:50%;
-    box-shadow:0 0 10px var(--gold);
-    opacity:.45;
-    animation:float 9s infinite ease-in-out;
+position:absolute;width:3px;height:3px;background:var(--gold-light);
+border-radius:50%;box-shadow:0 0 10px var(--gold);opacity:.45;
+animation:float 9s infinite ease-in-out;
 }
-
 @keyframes float{
-    0%{transform:translateY(20px);opacity:0}
-    50%{opacity:.7}
-    100%{transform:translateY(-110px);opacity:0}
+0%{transform:translateY(20px);opacity:0}
+50%{opacity:.7}
+100%{transform:translateY(-110px);opacity:0}
 }
 
-.screen{
-    display:none;
-    position:relative;
-    z-index:2;
-    min-height:100vh;
-    width:100%;
-}
-
-.screen.active{
-    display:flex;
-    animation:screenIn 1.1s ease;
-}
-
+.screen{display:none;position:relative;z-index:2;min-height:100vh;width:100%}
+.screen.active{display:flex;animation:screenIn 1.1s ease}
 @keyframes screenIn{
-    from{opacity:0;transform:scale(1.015)}
-    to{opacity:1;transform:scale(1)}
+from{opacity:0;transform:scale(1.015)}
+to{opacity:1;transform:scale(1)}
 }
 
 /* INVITACIÓN */
 
-#invitation{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    padding:35px 20px;
-}
-
+#invitation{align-items:center;justify-content:center;text-align:center;padding:35px 20px}
 .invitation-content{width:100%;max-width:570px}
-
 .production-label{
-    font-family:'Cinzel',serif;
-    font-size:10px;
-    letter-spacing:5px;
-    color:var(--gold);
-    margin-bottom:40px;
+font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;
+color:var(--gold);margin-bottom:40px;
 }
-
 .invitation-symbol{
-    width:85px;
-    height:85px;
-    border:1px solid rgba(213,180,119,.55);
-    border-radius:50%;
-    display:grid;
-    place-items:center;
-    margin:0 auto 30px;
-    font-size:33px;
-    color:var(--gold-light);
-    box-shadow:0 0 40px rgba(213,180,119,.12);
-    animation:glow 4s infinite ease-in-out;
+width:85px;height:85px;border:1px solid rgba(213,180,119,.55);
+border-radius:50%;display:grid;place-items:center;margin:0 auto 30px;
+font-size:33px;color:var(--gold-light);
+box-shadow:0 0 40px rgba(213,180,119,.12);
+animation:glow 4s infinite ease-in-out;
 }
-
-@keyframes glow{
-    50%{box-shadow:0 0 55px rgba(213,180,119,.3)}
-}
-
+@keyframes glow{50%{box-shadow:0 0 55px rgba(213,180,119,.3)}}
 .invitation-content h1{
-    font-family:'Cinzel',serif;
-    font-weight:400;
-    font-size:clamp(27px,6vw,43px);
-    line-height:1.5;
-    color:var(--gold-light);
-    letter-spacing:2px;
+font-family:'Cinzel',serif;font-weight:400;
+font-size:clamp(27px,6vw,43px);line-height:1.5;
+color:var(--gold-light);letter-spacing:2px;
 }
-
 .intro-text{
-    font-size:19px;
-    line-height:1.7;
-    color:#c9bca9;
-    margin:25px auto;
-    max-width:390px;
+font-size:19px;line-height:1.7;color:#c9bca9;
+margin:25px auto;max-width:390px;
 }
-
 .recipient{
-    color:var(--gold);
-    font-family:'Cinzel',serif;
-    font-size:12px;
-    letter-spacing:3px;
-    margin:35px 0;
+color:var(--gold);font-family:'Cinzel',serif;
+font-size:12px;letter-spacing:3px;margin:35px 0;
 }
-
 .gold-button{
-    background:linear-gradient(135deg,#f2dbac,#b48b4e,#e6c68d);
-    color:#160f0b;
-    border:none;
-    padding:16px 32px;
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:2px;
-    cursor:pointer;
-    transition:.4s;
-    box-shadow:0 0 30px rgba(213,180,119,.14);
+background:linear-gradient(135deg,#f2dbac,#b48b4e,#e6c68d);
+color:#160f0b;border:none;padding:16px 32px;
+font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;
+cursor:pointer;transition:.4s;
+box-shadow:0 0 30px rgba(213,180,119,.14);
 }
-
-.gold-button:hover{
-    transform:translateY(-3px);
-    box-shadow:0 0 40px rgba(213,180,119,.35);
-}
-
-.small-note{
-    color:#827464;
-    font-size:13px;
-    margin-top:30px;
-    letter-spacing:1px;
-}
+.gold-button:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(213,180,119,.35)}
+.small-note{color:#827464;font-size:13px;margin-top:30px;letter-spacing:1px}
 
 /* SOBRE */
 
-#envelope-screen{
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    padding:25px;
-}
-
+#envelope-screen{justify-content:center;align-items:center;text-align:center;padding:25px}
 .envelope-content{width:100%;max-width:470px}
-
 .envelope-content h2{
-    font-family:'Cinzel',serif;
-    color:var(--gold-light);
-    font-size:23px;
-    font-weight:400;
-    margin-bottom:20px;
+font-family:'Cinzel',serif;color:var(--gold-light);
+font-size:23px;font-weight:400;margin-bottom:20px;
 }
-
-.envelope-content p{
-    font-size:18px;
-    color:#bcae9b;
-    margin-bottom:40px;
-}
-
+.envelope-content p{font-size:18px;color:#bcae9b;margin-bottom:40px}
 .envelope{
-    position:relative;
-    width:min(290px,82vw);
-    height:190px;
-    margin:0 auto 35px;
-    background:linear-gradient(145deg,#541c28,#210c13);
-    border:1px solid #9e7748;
-    box-shadow:0 20px 60px #000;
-    cursor:pointer;
+position:relative;width:min(290px,82vw);height:190px;margin:0 auto 35px;
+background:linear-gradient(145deg,#541c28,#210c13);
+border:1px solid #9e7748;box-shadow:0 20px 60px #000;cursor:pointer;
 }
-
 .envelope::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(145deg,transparent 49.5%,#7c3940 50%,transparent 51%);
-    opacity:.7;
+content:"";position:absolute;inset:0;
+background:linear-gradient(145deg,transparent 49.5%,#7c3940 50%,transparent 51%);
+opacity:.7;
 }
-
 .envelope-flap{
-    position:absolute;
-    inset:0;
-    background:#762d3c;
-    clip-path:polygon(0 0,100% 0,50% 62%);
-    transform-origin:top;
-    transition:transform .8s ease;
-    z-index:3;
+position:absolute;inset:0;background:#762d3c;
+clip-path:polygon(0 0,100% 0,50% 62%);
+transform-origin:top;transition:transform .8s ease;z-index:3;
 }
-
 .envelope.open .envelope-flap{transform:rotateX(180deg)}
-
 .seal{
-    position:absolute;
-    width:51px;
-    height:51px;
-    border-radius:50%;
-    background:radial-gradient(circle,#e8c88e,#997040);
-    color:#4a1b20;
-    display:grid;
-    place-items:center;
-    font-size:22px;
-    left:50%;
-    top:48%;
-    transform:translate(-50%,-50%);
-    z-index:4;
-    box-shadow:0 0 20px rgba(213,180,119,.3);
-    transition:.5s;
+position:absolute;width:51px;height:51px;border-radius:50%;
+background:radial-gradient(circle,#e8c88e,#997040);color:#4a1b20;
+display:grid;place-items:center;font-size:22px;left:50%;top:48%;
+transform:translate(-50%,-50%);z-index:4;
+box-shadow:0 0 20px rgba(213,180,119,.3);transition:.5s;
 }
-
-.envelope.open .seal{
-    opacity:0;
-    transform:translate(-50%,-80%);
-}
-
+.envelope.open .seal{opacity:0;transform:translate(-50%,-80%)}
 .envelope-hint{
-    font-size:13px!important;
-    color:var(--gold)!important;
-    letter-spacing:2px;
-    animation:pulse 2s infinite;
+font-size:13px!important;color:var(--gold)!important;
+letter-spacing:2px;animation:pulse 2s infinite;
 }
-
 @keyframes pulse{50%{opacity:.45}}
 
-/* REVELACIÓN */
+/* REVELACIÓN CINEMATOGRÁFICA */
 
 #reveal{
-    align-items:center;
-    justify-content:center;
-    text-align:center;
-    overflow:hidden;
-    padding:30px 15px;
+align-items:center;justify-content:center;text-align:center;
+overflow:hidden;padding:30px 15px;
 }
-
 .cinema{
-    position:absolute;
-    inset:0;
-    background:
-      radial-gradient(ellipse at 50% 50%,rgba(157,107,52,.23),transparent 50%),
-      linear-gradient(#10080d,#050406);
+position:absolute;inset:0;
+background:radial-gradient(ellipse at 50% 50%,rgba(157,107,52,.23),transparent 50%),linear-gradient(#10080d,#050406);
 }
-
 .curtain{
-    position:absolute;
-    top:0;
-    height:100%;
-    width:51%;
-    z-index:2;
-    background:repeating-linear-gradient(90deg,#210810 0,#5b1828 25px,#270914 52px);
-    box-shadow:inset 0 0 60px #000,0 0 30px #000;
-    transition:transform 2.5s cubic-bezier(.7,0,.2,1);
+position:absolute;top:0;height:100%;width:51%;z-index:2;
+background:repeating-linear-gradient(90deg,#210810 0,#5b1828 25px,#270914 52px);
+box-shadow:inset 0 0 60px #000,0 0 30px #000;
+transition:transform 2.5s cubic-bezier(.7,0,.2,1);
 }
-
 .curtain.left{left:0;transform-origin:left}
 .curtain.right{right:0;transform-origin:right}
-
 #reveal.opened .curtain.left{transform:translateX(-105%)}
 #reveal.opened .curtain.right{transform:translateX(105%)}
-
 .reveal-content{
-    position:relative;
-    z-index:3;
-    opacity:0;
-    transition:opacity 2s ease 1.3s;
-    max-width:700px;
-    padding:20px;
+position:relative;z-index:3;opacity:0;
+transition:opacity 2s ease 1.3s;max-width:700px;padding:20px;
 }
-
 #reveal.opened .reveal-content{opacity:1}
-
 .film-label{
-    color:var(--gold);
-    font-family:'Cinzel',serif;
-    font-size:10px;
-    letter-spacing:6px;
-    margin-bottom:35px;
+color:var(--gold);font-family:'Cinzel',serif;
+font-size:10px;letter-spacing:6px;margin-bottom:35px;
 }
-
 .reveal-content h1{
-    color:var(--gold-light);
-    font-family:'Cinzel',serif;
-    font-weight:400;
-    font-size:clamp(32px,8vw,65px);
-    line-height:1.4;
-    text-shadow:0 0 30px rgba(213,180,119,.28);
+color:var(--gold-light);font-family:'Cinzel',serif;
+font-weight:400;font-size:clamp(32px,8vw,65px);
+line-height:1.4;text-shadow:0 0 30px rgba(213,180,119,.28);
 }
-
-.tagline{
-    font-size:22px;
-    font-style:italic;
-    color:#c7b89f;
-    margin-top:25px;
-}
-
+.tagline{font-size:22px;font-style:italic;color:#c7b89f;margin-top:25px}
 .credits{
-    font-family:'Cinzel',serif;
-    font-size:10px;
-    letter-spacing:3px;
-    color:var(--gold);
-    margin-top:50px;
-    line-height:2.3;
+font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
+color:var(--gold);margin-top:50px;line-height:2.3;
 }
-
-#continue-button{
-    margin-top:35px;
-    opacity:0;
-    pointer-events:none;
-    transition:opacity 1s;
-}
-
-#reveal.opened #continue-button{
-    opacity:1;
-    pointer-events:auto;
-}
+#continue-button{margin-top:35px;opacity:0;pointer-events:none;transition:opacity 1s}
+#reveal.opened #continue-button{opacity:1;pointer-events:auto}
 
 /* PANEL PRINCIPAL */
 
-#main{
-    display:none;
-    padding:35px 16px 65px;
-}
-
+#main{display:none;padding:35px 16px 65px}
 #main.active{display:block}
-
 .main-container{max-width:950px;margin:auto}
-
 .main-header{
-    text-align:center;
-    padding:35px 10px 45px;
-    border-bottom:1px solid rgba(213,180,119,.2);
+text-align:center;padding:35px 10px 45px;
+border-bottom:1px solid rgba(213,180,119,.2);
 }
-
 .main-header .overline{
-    font-family:'Cinzel',serif;
-    font-size:10px;
-    letter-spacing:4px;
-    color:var(--gold);
-    margin-bottom:20px;
+font-family:'Cinzel',serif;font-size:10px;
+letter-spacing:4px;color:var(--gold);margin-bottom:20px;
 }
-
 .main-header h1{
-    font-family:'Cinzel',serif;
-    font-size:clamp(25px,6vw,45px);
-    font-weight:400;
-    color:var(--gold-light);
-    line-height:1.4;
+font-family:'Cinzel',serif;font-size:clamp(25px,6vw,45px);
+font-weight:400;color:var(--gold-light);line-height:1.4;
 }
-
-.main-header p{
-    font-size:19px;
-    color:#a99b88;
-    margin-top:18px;
-}
-
+.main-header p{font-size:19px;color:#a99b88;margin-top:18px}
 .main-message{
-    text-align:center;
-    max-width:620px;
-    margin:40px auto;
-    padding:25px;
-    background:linear-gradient(135deg,rgba(71,35,35,.18),rgba(213,180,119,.035));
-    border:1px solid rgba(213,180,119,.2);
+text-align:center;max-width:620px;margin:40px auto;padding:25px;
+background:linear-gradient(135deg,rgba(71,35,35,.18),rgba(213,180,119,.035));
+border:1px solid rgba(213,180,119,.2);
 }
-
 .main-message .quote{
-    font-size:25px;
-    font-style:italic;
-    color:var(--gold-light);
-    line-height:1.5;
+font-size:25px;font-style:italic;color:var(--gold-light);line-height:1.5;
 }
-
 .main-message small{
-    display:block;
-    margin-top:18px;
-    color:#9a8974;
-    letter-spacing:2px;
-    font-family:'Cinzel',serif;
-    font-size:9px;
+display:block;margin-top:18px;color:#9a8974;letter-spacing:2px;
+font-family:'Cinzel',serif;font-size:9px;
 }
 
 /* ACTOS */
 
 .section-heading{
-    text-align:center;
-    font-family:'Cinzel',serif;
-    color:var(--gold);
-    font-size:12px;
-    letter-spacing:4px;
-    margin:55px 0 25px;
+text-align:center;font-family:'Cinzel',serif;color:var(--gold);
+font-size:12px;letter-spacing:4px;margin:55px 0 25px;
 }
-
-.acts{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
+.acts{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
 .act{
-    position:relative;
-    padding:27px 19px;
-    min-height:160px;
-    background:linear-gradient(145deg,rgba(75,32,38,.36),rgba(18,13,15,.8));
-    border:1px solid rgba(213,180,119,.2);
-    overflow:hidden;
-    transition:.4s;
+position:relative;padding:27px 19px;min-height:160px;
+background:linear-gradient(145deg,rgba(75,32,38,.36),rgba(18,13,15,.8));
+border:1px solid rgba(213,180,119,.2);overflow:hidden;transition:.4s;
 }
+.act:hover{transform:translateY(-4px);border-color:var(--gold)}
+.act .number{color:var(--gold-dark);font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px}
+.act h3{color:var(--gold-light);font-size:21px;font-weight:500;margin:15px 0 8px}
+.act p{color:#a99c8c;font-size:15px;line-height:1.5}
 
-.act:hover{
-    transform:translateY(-4px);
-    border-color:var(--gold);
-}
+/* CASILLAS */
 
-.act .number{
-    color:var(--gold-dark);
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:2px;
-}
-
-.act h3{
-    color:var(--gold-light);
-    font-size:21px;
-    font-weight:500;
-    margin:15px 0 8px;
-}
-
-.act p{
-    color:#a99c8c;
-    font-size:15px;
-    line-height:1.5;
-}
-
-/* ESCENAS */
-
-.scene-grid{
-    display:grid;
-    grid-template-columns:repeat(5,1fr);
-    gap:10px;
-}
-
+.scene-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
 .scene{
-    aspect-ratio:1/1.1;
-    border:1px solid rgba(213,180,119,.25);
-    background:linear-gradient(145deg,#21151a,#0c090b);
-    color:var(--gold);
-    cursor:pointer;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:9px;
-    transition:.3s;
-    padding:5px;
+aspect-ratio:1/1.1;border:1px solid rgba(213,180,119,.25);
+background:linear-gradient(145deg,#21151a,#0c090b);
+color:var(--gold);cursor:pointer;display:flex;flex-direction:column;
+justify-content:center;align-items:center;gap:9px;transition:.3s;padding:5px;
 }
-
 .scene:hover:not(:disabled){
-    background:linear-gradient(145deg,#57313a,#25151b);
-    transform:translateY(-3px);
-    border-color:var(--gold);
+background:linear-gradient(145deg,#57313a,#25151b);
+transform:translateY(-3px);border-color:var(--gold);
 }
-
 .scene:disabled{opacity:.42;cursor:not-allowed}
-
-.scene strong{
-    font-family:'Cinzel',serif;
-    font-size:18px;
-    font-weight:400;
-}
-
-.scene span{
-    font-size:9px;
-    letter-spacing:1px;
-    text-align:center;
-}
-
+.scene strong{font-family:'Cinzel',serif;font-size:18px;font-weight:400}
+.scene span{font-size:9px;letter-spacing:1px;text-align:center}
 .scene-icon{font-size:19px}
 
 /* PROGRESO */
 
-.progress-info{
-    text-align:center;
-    margin-top:25px;
-    color:#b6a48b;
-    font-size:15px;
-}
-
-.progress-bar{
-    height:3px;
-    max-width:400px;
-    margin:15px auto;
-    background:#30252a;
-}
-
+.progress-info{text-align:center;margin-top:25px;color:#b6a48b;font-size:15px}
+.progress-bar{height:3px;max-width:400px;margin:15px auto;background:#30252a}
 .progress-fill{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,#997044,#f5dfad);
-    transition:width .6s;
+height:100%;width:0%;
+background:linear-gradient(90deg,#997044,#f5dfad);transition:width .6s;
 }
 
-/* MODAL DE CARTAS */
+/* MODAL */
 
 .modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:20;
-    background:rgba(0,0,0,.96);
-    align-items:center;
-    justify-content:center;
-    padding:15px;
-    overflow-y:auto;
+display:none;position:fixed;inset:0;z-index:20;
+background:rgba(0,0,0,.96);align-items:center;justify-content:center;
+padding:15px;overflow-y:auto;
 }
-
 .modal.active{display:flex}
-
 .modal-box{
-    width:100%;
-    max-width:570px;
-    max-height:92vh;
-    overflow-y:auto;
-    text-align:center;
-    padding:30px 23px;
-    border:1px solid rgba(213,180,119,.45);
-    background:
-      radial-gradient(ellipse at top,rgba(95,49,49,.22),transparent 65%),
-      linear-gradient(145deg,#21151a,#0c090b);
-    box-shadow:0 20px 80px #000;
-    animation:modalIn .6s ease;
+width:100%;max-width:570px;max-height:92vh;overflow-y:auto;
+text-align:center;padding:30px 23px;
+border:1px solid rgba(213,180,119,.45);
+background:radial-gradient(ellipse at top,rgba(95,49,49,.22),transparent 65%),linear-gradient(145deg,#21151a,#0c090b);
+box-shadow:0 20px 80px #000;animation:modalIn .6s ease;
 }
-
 @keyframes modalIn{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
 }
-
-.modal-symbol{
-    font-size:32px;
-    color:var(--gold);
-}
-
+.modal-symbol{font-size:32px;color:var(--gold)}
 .modal-day{
-    font-family:'Cinzel',serif;
-    font-size:10px;
-    letter-spacing:4px;
-    color:var(--gold);
-    margin-top:15px;
+font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;
+color:var(--gold);margin-top:15px;
 }
-
 .modal-box h2{
-    color:var(--gold-light);
-    font-family:'Cinzel',serif;
-    font-weight:400;
-    font-size:clamp(20px,5vw,28px);
-    line-height:1.5;
-    margin:20px 0 12px;
+color:var(--gold-light);font-family:'Cinzel',serif;font-weight:400;
+font-size:clamp(20px,5vw,28px);line-height:1.5;margin:20px 0 12px;
 }
-
-.modal-nickname{
-    color:#d7b77f;
-    font-size:21px;
-    font-style:italic;
-    margin-bottom:22px;
-}
-
+.modal-nickname{color:#d7b77f;font-size:21px;font-style:italic;margin-bottom:22px}
 .modal-photo{
-    display:none;
-    width:100%;
-    max-height:340px;
-    object-fit:contain;
-    margin:15px auto 25px;
-    border:1px solid rgba(213,180,119,.4);
-    box-shadow:0 10px 35px #000;
+display:none;width:100%;max-height:340px;object-fit:contain;
+margin:15px auto 25px;border:1px solid rgba(213,180,119,.4);
+box-shadow:0 10px 35px #000;
 }
-
 .modal-body{
-    text-align:left;
-    color:#e1d4c1;
-    font-size:20px;
-    line-height:1.85;
-    white-space:pre-line;
+text-align:left;color:#e1d4c1;font-size:20px;
+line-height:1.85;white-space:pre-line;
 }
-
 .modal-body p{margin-bottom:17px}
-
 .modal-signature{
-    color:var(--gold);
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:2px;
-    line-height:2;
-    margin-top:30px;
-    white-space:pre-line;
+color:var(--gold);font-family:'Cinzel',serif;
+font-size:11px;letter-spacing:2px;line-height:2;
+margin-top:30px;white-space:pre-line;
 }
+.pending-icon{font-size:37px;margin:20px 0;color:var(--gold)}
+.pending-message{color:#c4b49e;font-size:19px;line-height:1.7;margin:15px 0}
 
-.pending-icon{
-    font-size:37px;
-    margin:20px 0;
-    color:var(--gold);
+/* DOS REGALOS */
+
+.gift-options{display:grid;grid-template-columns:1fr;gap:15px;margin:28px 0}
+.gift-button{
+width:100%;padding:23px 15px;
+background:linear-gradient(145deg,#291820,#100b0e);
+border:1px solid rgba(213,180,119,.4);
+color:var(--gold-light);cursor:pointer;transition:.35s;
 }
-
-.pending-message{
-    color:#c4b49e;
-    font-size:19px;
-    line-height:1.7;
-    margin:15px 0;
+.gift-button:hover{
+border-color:var(--gold);transform:translateY(-3px);
+background:linear-gradient(145deg,#48232e,#1b1015);
+}
+.gift-icon{display:block;font-size:29px;margin-bottom:10px}
+.gift-button strong{
+display:block;font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;
+}
+.gift-button small{display:block;color:#b8a58d;margin-top:8px;font-size:15px}
+.gift-status{display:block;color:var(--gold);font-size:10px;letter-spacing:2px;margin-top:13px}
+.back-button{
+background:transparent;border:1px solid rgba(213,180,119,.35);
+color:var(--gold);padding:12px 20px;margin-top:25px;
+cursor:pointer;letter-spacing:1px;
+}
+.entry-content{display:none}
+.entry-content.active{display:block}
+.entry-label{
+font-family:'Cinzel',serif;font-size:10px;
+letter-spacing:3px;color:var(--gold);margin-top:20px;
 }
 
 /* PIE */
 
 .main-footer{
-    text-align:center;
-    border-top:1px solid rgba(213,180,119,.2);
-    margin-top:65px;
-    padding-top:30px;
+text-align:center;border-top:1px solid rgba(213,180,119,.2);
+margin-top:65px;padding-top:30px;
 }
-
-.main-footer p{
-    color:#8f806e;
-    font-size:14px;
-    line-height:2;
-}
-
+.main-footer p{color:#8f806e;font-size:14px;line-height:2}
 .main-footer strong{
-    display:block;
-    color:var(--gold);
-    font-family:'Cinzel',serif;
-    font-size:11px;
-    letter-spacing:3px;
-    margin-top:15px;
+display:block;color:var(--gold);font-family:'Cinzel',serif;
+font-size:11px;letter-spacing:3px;margin-top:15px;
 }
 
 @media(max-width:550px){
-    .acts{grid-template-columns:1fr}
-    .scene-grid{grid-template-columns:repeat(5,1fr);gap:6px}
-    .scene strong{font-size:15px}
-    .scene span{font-size:8px}
-    .scene-icon{font-size:16px}
-    #main{padding-left:12px;padding-right:12px}
-    .modal-box{padding:25px 18px}
+.acts{grid-template-columns:1fr}
+.scene-grid{grid-template-columns:repeat(5,1fr);gap:6px}
+.scene strong{font-size:15px}
+.scene span{font-size:8px}
+.scene-icon{font-size:16px}
+#main{padding-left:12px;padding-right:12px}
+.modal-box{padding:25px 18px}
 }
 </style>
 </head>
@@ -686,72 +353,58 @@ button{font-family:inherit}
 <!-- INVITACIÓN -->
 
 <section class="screen active" id="invitation">
-    <div class="invitation-content">
-        <div class="production-label">UNA INVITACIÓN MUY ESPECIAL</div>
-        <div class="invitation-symbol">✉</div>
-
-        <h1>TIENES UNA<br>INVITACIÓN<br>PENDIENTE</h1>
-
-        <p class="intro-text">
-            Hay algo que alguien ha preparado especialmente para ti.
-            Una historia que todavía no conoces y un secreto que
-            espera ser descubierto.
-        </p>
-
-        <div class="recipient">PARA: VALERIA PETRO VILLAZÓN</div>
-
-        <button class="gold-button" onclick="showScreen('envelope-screen')">
-            DESCUBRIR INVITACIÓN
-        </button>
-
-        <p class="small-note">NOVIEMBRE · 2026</p>
-    </div>
+<div class="invitation-content">
+<div class="production-label">UNA INVITACIÓN MUY ESPECIAL</div>
+<div class="invitation-symbol">✉</div>
+<h1>TIENES UNA<br>INVITACIÓN<br>PENDIENTE</h1>
+<p class="intro-text">
+Hay algo que alguien ha preparado especialmente para ti.
+Una historia que todavía no conoces y un secreto que
+espera ser descubierto.
+</p>
+<div class="recipient">PARA: VALERIA PETRO VILLAZÓN</div>
+<button class="gold-button" onclick="showScreen('envelope-screen')">
+DESCUBRIR INVITACIÓN
+</button>
+<p class="small-note">NOVIEMBRE · 2026</p>
+</div>
 </section>
 
 <!-- SOBRE -->
 
 <section class="screen" id="envelope-screen">
-    <div class="envelope-content">
-        <div class="production-label">CORRESPONDENCIA CONFIDENCIAL</div>
-        <h2>Una última cosa antes de comenzar...</h2>
-        <p>Alguien ha dejado un mensaje esperando a que lo descubras.</p>
-
-        <div class="envelope" id="envelope" onclick="openEnvelope()">
-            <div class="envelope-flap"></div>
-            <div class="seal">♡</div>
-        </div>
-
-        <p class="envelope-hint" id="envelope-hint">TOCA EL SOBRE PARA ABRIRLO</p>
-        <p class="small-note">Algunas historias merecen ser descubiertas.</p>
-    </div>
+<div class="envelope-content">
+<div class="production-label">CORRESPONDENCIA CONFIDENCIAL</div>
+<h2>Una última cosa antes de comenzar...</h2>
+<p>Alguien ha dejado un mensaje esperando a que lo descubras.</p>
+<div class="envelope" id="envelope" onclick="openEnvelope()">
+<div class="envelope-flap"></div>
+<div class="seal">♡</div>
+</div>
+<p class="envelope-hint" id="envelope-hint">TOCA EL SOBRE PARA ABRIRLO</p>
+<p class="small-note">Algunas historias merecen ser descubiertas.</p>
+</div>
 </section>
 
 <!-- REVELACIÓN -->
 
 <section class="screen" id="reveal">
-    <div class="cinema"></div>
-    <div class="curtain left"></div>
-    <div class="curtain right"></div>
-
-    <div class="reveal-content">
-        <div class="film-label">UNA PRODUCCIÓN EXCLUSIVA</div>
-
-        <h1>EL SECRETO<br>DETRÁS DE<br>NOSOTROS</h1>
-
-        <p class="tagline">
-            «No todas las historias revelan sus secretos desde el principio...»
-        </p>
-
-        <div class="credits">
-            PROTAGONISTA: VALERIA<br>
-            UNA HISTORIA DE JUAN<br>
-            NOVIEMBRE 2026
-        </div>
-
-        <button class="gold-button" id="continue-button" onclick="showScreen('main')">
-            ENTRAR EN LA HISTORIA
-        </button>
-    </div>
+<div class="cinema"></div>
+<div class="curtain left"></div>
+<div class="curtain right"></div>
+<div class="reveal-content">
+<div class="film-label">UNA PRODUCCIÓN EXCLUSIVA</div>
+<h1>EL SECRETO<br>DETRÁS DE<br>NOSOTROS</h1>
+<p class="tagline">«No todas las historias revelan sus secretos desde el principio...»</p>
+<div class="credits">
+PROTAGONISTA: VALERIA<br>
+UNA HISTORIA DE JUAN<br>
+NOVIEMBRE 2026
+</div>
+<button class="gold-button" id="continue-button" onclick="showScreen('main')">
+ENTRAR EN LA HISTORIA
+</button>
+</div>
 </section>
 
 <!-- PANEL PRINCIPAL -->
@@ -759,104 +412,123 @@ button{font-family:inherit}
 <section class="screen" id="main">
 <div class="main-container">
 
-    <header class="main-header">
-        <div class="overline">UNA PRODUCCIÓN EXCLUSIVA</div>
-        <h1>EL SECRETO<br>DETRÁS DE NOSOTROS</h1>
-        <p>Una historia que se escribe con cada día que vivimos.</p>
-    </header>
+<header class="main-header">
+<div class="overline">UNA PRODUCCIÓN EXCLUSIVA</div>
+<h1>EL SECRETO<br>DETRÁS DE NOSOTROS</h1>
+<p>Una historia que se escribe con cada día que vivimos.</p>
+</header>
 
-    <div class="main-message">
-        <div class="quote">
-            «No quiero contarte una historia que todavía no ha sucedido.
-            Quiero guardar aquí cada pedacito de lo que vivimos».
-        </div>
-        <small>MENSAJE DEL DIRECTOR</small>
-    </div>
+<div class="main-message">
+<div class="quote">
+«No quiero contarte una historia que todavía no ha sucedido.
+Quiero guardar aquí cada pedacito de lo que vivimos».
+</div>
+<small>MENSAJE DEL DIRECTOR</small>
+</div>
 
-    <!-- ACTOS -->
+<div class="section-heading">LOS CUATRO ACTOS</div>
 
-    <div class="section-heading">LOS CUATRO ACTOS</div>
+<div class="acts">
+<div class="act">
+<div class="number">ACTO I · 01—07</div>
+<h3>Los primeros capítulos</h3>
+<p>Siete días, siete oportunidades para guardar lo que vivimos.</p>
+</div>
+<div class="act">
+<div class="number">ACTO II · 08—14</div>
+<h3>Lo que vamos sintiendo</h3>
+<p>Las emociones y los momentos que nos acompañen.</p>
+</div>
+<div class="act">
+<div class="number">ACTO III · 15—23</div>
+<h3>Nuestra historia continúa</h3>
+<p>Todo aquello que todavía nos queda por compartir.</p>
+</div>
+<div class="act">
+<div class="number">ACTO IV · 24—30</div>
+<h3>Un mes para recordar</h3>
+<p>Los últimos capítulos de noviembre, escritos por nosotros.</p>
+</div>
+</div>
 
-    <div class="acts">
-        <div class="act">
-            <div class="number">ACTO I · 01—07</div>
-            <h3>Los primeros capítulos</h3>
-            <p>Siete días, siete oportunidades para guardar lo que vivimos.</p>
-        </div>
+<div class="section-heading">NUESTRO ARCHIVO DE RECUERDOS</div>
+<div class="scene-grid" id="scene-grid"></div>
 
-        <div class="act">
-            <div class="number">ACTO II · 08—14</div>
-            <h3>Lo que vamos sintiendo</h3>
-            <p>Las emociones y los momentos que nos acompañen.</p>
-        </div>
+<div class="progress-info" id="progress-info">0 DE 30 DÍAS DESBLOQUEADOS</div>
+<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
 
-        <div class="act">
-            <div class="number">ACTO III · 15—23</div>
-            <h3>Nuestra historia continúa</h3>
-            <p>Todo aquello que todavía nos queda por compartir.</p>
-        </div>
-
-        <div class="act">
-            <div class="number">ACTO IV · 24—30</div>
-            <h3>Un mes para recordar</h3>
-            <p>Los últimos capítulos de noviembre, escritos por nosotros.</p>
-        </div>
-    </div>
-
-    <!-- ARCHIVO -->
-
-    <div class="section-heading">NUESTRO ARCHIVO DE CARTAS</div>
-
-    <div class="scene-grid" id="scene-grid"></div>
-
-    <div class="progress-info" id="progress-info">
-        0 DE 30 DÍAS DISPONIBLES
-    </div>
-
-    <div class="progress-bar">
-        <div class="progress-fill" id="progress-fill"></div>
-    </div>
-
-    <footer class="main-footer">
-        <p>
-            Ninguna carta está escrita antes de tiempo.<br>
-            Cada una tendrá algo verdadero que contar.
-        </p>
-        <strong>JUAN & VALERIA</strong>
-        <p style="margin-top:15px">NOVIEMBRE · 2026</p>
-    </footer>
+<footer class="main-footer">
+<p>
+Cada día tendrá dos pequeños regalos.<br>
+Una carta y un poema nacidos de nuestro amor.
+</p>
+<strong>JUAN & VALERIA</strong>
+<p style="margin-top:15px">NOVIEMBRE · 2026</p>
+</footer>
 
 </div>
 </section>
 
-<!-- VENTANA DE LECTURA -->
+<!-- VENTANA DE LOS DOS REGALOS -->
 
 <div class="modal" id="scene-modal" onclick="closeModalOutside(event)">
-    <div class="modal-box" id="modal-box">
+<div class="modal-box" id="modal-box">
 
-        <div class="modal-symbol">✦</div>
-        <div class="modal-day" id="modal-day"></div>
+<div class="modal-symbol">✦</div>
+<div class="modal-day" id="modal-day"></div>
 
-        <h2 id="modal-title"></h2>
+<!-- MENÚ DE CARTA Y POEMA -->
 
-        <div class="modal-nickname" id="modal-nickname"></div>
+<div id="gift-menu">
+<h2>Dos pequeños regalos para ti</h2>
+<div class="modal-nickname">
+Porque hay sentimientos que merecen más de una forma de expresarse.
+</div>
 
-        <img class="modal-photo" id="modal-photo" alt="Un recuerdo especial">
+<div class="gift-options">
 
-        <div class="modal-body" id="modal-body"></div>
+<button class="gift-button" onclick="showEntry('letter')">
+<span class="gift-icon">💌</span>
+<strong>NUESTRA CARTA</strong>
+<small>Una historia escrita desde el corazón</small>
+<span class="gift-status" id="letter-status">PENDIENTE</span>
+</button>
 
-        <div class="modal-signature" id="modal-signature"></div>
+<button class="gift-button" onclick="showEntry('poem')">
+<span class="gift-icon">🥀</span>
+<strong>NUESTRO POEMA</strong>
+<small>Un universo de sentimientos en versos</small>
+<span class="gift-status" id="poem-status">PENDIENTE</span>
+</button>
 
-        <div id="pending-content" style="display:none">
-            <div class="pending-icon">✉</div>
-            <p class="pending-message" id="pending-message"></p>
-        </div>
+</div>
+</div>
 
-        <button class="gold-button" onclick="closeModal()">
-            VOLVER A NUESTRA HISTORIA
-        </button>
+<!-- LECTURA INDIVIDUAL -->
 
-    </div>
+<div id="entry-view" class="entry-content">
+<div class="entry-label" id="entry-type"></div>
+<h2 id="modal-title"></h2>
+<div class="modal-nickname" id="modal-nickname"></div>
+<img class="modal-photo" id="modal-photo" alt="Un recuerdo especial">
+<div class="modal-body" id="modal-body"></div>
+<div class="modal-signature" id="modal-signature"></div>
+
+<div id="pending-content" style="display:none">
+<div class="pending-icon">✉</div>
+<p class="pending-message" id="pending-message"></p>
+</div>
+
+<button class="back-button" onclick="backToGifts()">
+← VOLVER A LOS DOS REGALOS
+</button>
+</div>
+
+<button class="gold-button" onclick="closeModal()" style="margin-top:20px">
+VOLVER A NUESTRA HISTORIA
+</button>
+
+</div>
 </div>
 
 <script>
@@ -865,33 +537,12 @@ button{font-family:inherit}
    CARTAS DIARIAS
 ================================== */
 
-/*
-   Aquí iremos incorporando las cartas,
-   únicamente después de conocer lo sucedido.
-
-   No escribas cartas adelantadas.
-
-   Ejemplo de cómo se agregará una carta:
-
-   1: {
-       title: "Título de la carta",
-       nickname: "Apodo especial",
-       body: `Primer párrafo.
-
-Segundo párrafo.
-
-Tercer párrafo.`,
-       photo: "foto.jpg"
-   }
-
-   Si no deseas fotografía, elimina la línea photo.
-*/
-
 const dailyLetters = {
-  1: {
-    title: "DONDE NOVIEMBRE COMIENZA CON TU NOMBRE",
-    nickname: "Mi refugio favorito entre todos los días",
-    body: `Mi amor hermoso:
+
+1:{
+title:"DONDE NOVIEMBRE COMIENZA CON TU NOMBRE",
+nickname:"Mi refugio favorito entre todos los días",
+body:`Mi amor hermoso:
 
 ¡Bienvenida a un nuevo mes, mi niña preciosa! ❤️ Y, sobre todo, bienvenida a una nueva aventura que he preparado con muchísimo cariño para nosotros: El secreto detrás de nosotros. Quiero que este pequeño rincón se convierta en un lugar donde podamos guardar nuestros recuerdos, nuestros sentimientos, nuestras sonrisas y cada pedacito de esta historia tan bonita que seguimos construyendo juntos.
 
@@ -909,7 +560,37 @@ Con todo mi amor, siempre.
 
 JUAN KALETH MENDOZA PRIMERA ❤️
 Para mi amada VALERIA PETRO VILLAZÓN`,
-  }
+signature:"CON TODO MI AMOR\nJUAN KALETH MENDOZA PRIMERA"
+}
+
+};
+
+
+/* =================================
+   POEMAS DIARIOS
+================================== */
+
+/*
+Cuando preparemos cada poema, lo agregaremos aquí.
+
+Ejemplo:
+
+1:{
+title:"Título del poema",
+nickname:"Apodo especial",
+body:`Primer verso.
+
+Segundo verso.
+
+Tercer verso.`,
+photo:"poema.jpg"
+}
+
+Los poemas serán independientes de las cartas.
+*/
+
+const dailyPoems = {
+
 };
 
 
@@ -917,16 +598,16 @@ Para mi amada VALERIA PETRO VILLAZÓN`,
    PARTÍCULAS CINEMATOGRÁFICAS
 ================================== */
 
-const particles = document.getElementById("particles");
+const particles=document.getElementById("particles");
 
-for(let i=0; i<35; i++){
-    const p = document.createElement("div");
-    p.className = "particle";
-    p.style.left = Math.random()*100 + "%";
-    p.style.top = Math.random()*100 + "%";
-    p.style.animationDelay = Math.random()*8 + "s";
-    p.style.animationDuration = (6+Math.random()*8) + "s";
-    particles.appendChild(p);
+for(let i=0;i<35;i++){
+const p=document.createElement("div");
+p.className="particle";
+p.style.left=Math.random()*100+"%";
+p.style.top=Math.random()*100+"%";
+p.style.animationDelay=Math.random()*8+"s";
+p.style.animationDuration=(6+Math.random()*8)+"s";
+particles.appendChild(p);
 }
 
 
@@ -936,17 +617,15 @@ for(let i=0; i<35; i++){
 
 function showScreen(id){
 
-    document.querySelectorAll(".screen").forEach(screen=>{
-        screen.classList.remove("active");
-    });
+document.querySelectorAll(".screen").forEach(screen=>{
+screen.classList.remove("active");
+});
 
-    document.getElementById(id).classList.add("active");
+document.getElementById(id).classList.add("active");
+window.scrollTo({top:0,behavior:"smooth"});
 
-    window.scrollTo({top:0,behavior:"smooth"});
+if(id==="main")buildScenes();
 
-    if(id==="main"){
-        buildScenes();
-    }
 }
 
 
@@ -958,23 +637,23 @@ let envelopeOpened=false;
 
 function openEnvelope(){
 
-    if(envelopeOpened)return;
+if(envelopeOpened)return;
 
-    envelopeOpened=true;
+envelopeOpened=true;
+document.getElementById("envelope").classList.add("open");
 
-    document.getElementById("envelope").classList.add("open");
+document.getElementById("envelope-hint").textContent=
+"EL MENSAJE HA SIDO REVELADO...";
 
-    document.getElementById("envelope-hint").textContent=
-        "EL MENSAJE HA SIDO REVELADO...";
+setTimeout(()=>{
+showScreen("reveal");
 
-    setTimeout(()=>{
-        showScreen("reveal");
+setTimeout(()=>{
+document.getElementById("reveal").classList.add("opened");
+},300);
 
-        setTimeout(()=>{
-            document.getElementById("reveal").classList.add("opened");
-        },300);
+},1200);
 
-    },1200);
 }
 
 
@@ -984,15 +663,16 @@ function openEnvelope(){
 
 function getAvailableDay(){
 
-    const now=new Date();
+const now=new Date();
 
-    const start=new Date(2026,10,1,0,0,0);
-    const end=new Date(2026,10,30,23,59,59);
+const start=new Date(2026,10,1,0,0,0);
+const end=new Date(2026,10,30,23,59,59);
 
-    if(now<start)return 0;
-    if(now>end)return 30;
+if(now<start)return 0;
+if(now>end)return 30;
 
-    return now.getDate();
+return now.getDate();
+
 }
 
 
@@ -1002,136 +682,199 @@ function getAvailableDay(){
 
 function buildScenes(){
 
-    const grid=document.getElementById("scene-grid");
-    grid.innerHTML="";
+const grid=document.getElementById("scene-grid");
+grid.innerHTML="";
 
-    const currentDay=getAvailableDay();
-    let available=0;
-    let published=0;
+const currentDay=getAvailableDay();
 
-    for(let day=1;day<=30;day++){
+let available=0;
+let lettersPublished=0;
+let poemsPublished=0;
 
-        const unlocked=day<=currentDay;
-        const letter=dailyLetters[day];
-        const hasLetter=unlocked && !!letter;
+for(let day=1;day<=30;day++){
 
-        if(unlocked)available++;
-        if(hasLetter)published++;
+const unlocked=day<=currentDay;
+const hasLetter=unlocked && !!dailyLetters[day];
+const hasPoem=unlocked && !!dailyPoems[day];
 
-        const button=document.createElement("button");
-        button.className="scene";
-        button.disabled=!unlocked;
+if(unlocked)available++;
+if(hasLetter)lettersPublished++;
+if(hasPoem)poemsPublished++;
 
-        let icon="🔒";
-        let status="BLOQUEADA";
+const button=document.createElement("button");
+button.className="scene";
+button.disabled=!unlocked;
 
-        if(unlocked && hasLetter){
-            icon="✦";
-            status="LEER CARTA";
-        }else if(unlocked){
-            icon="✉";
-            status="PENDIENTE";
-        }
+let icon="🔒";
+let status="BLOQUEADA";
 
-        button.innerHTML=`
-            <div class="scene-icon">${icon}</div>
-            <strong>${String(day).padStart(2,"0")}</strong>
-            <span>${status}</span>
-        `;
+if(unlocked && hasLetter && hasPoem){
+icon="✦";
+status="CARTA + POEMA";
+}
+else if(unlocked && hasLetter){
+icon="💌";
+status="CARTA DISPONIBLE";
+}
+else if(unlocked && hasPoem){
+icon="🥀";
+status="POEMA DISPONIBLE";
+}
+else if(unlocked){
+icon="✉";
+status="PENDIENTE";
+}
 
-        if(unlocked){
-            button.addEventListener("click",()=>{
-                openScene(day);
-            });
-        }
+button.innerHTML=`
+<div class="scene-icon">${icon}</div>
+<strong>${String(day).padStart(2,"0")}</strong>
+<span>${status}</span>
+`;
 
-        grid.appendChild(button);
-    }
+if(unlocked){
+button.addEventListener("click",()=>openScene(day));
+}
 
-    document.getElementById("progress-info").textContent=
-        available+" DE 30 DÍAS DESBLOQUEADOS · "+
-        published+" CARTAS PUBLICADAS";
+grid.appendChild(button);
 
-    document.getElementById("progress-fill").style.width=
-        (available/30*100)+"%";
+}
+
+document.getElementById("progress-info").textContent=
+available+" DE 30 DÍAS DESBLOQUEADOS · "+
+lettersPublished+" CARTAS · "+
+poemsPublished+" POEMAS PUBLICADOS";
+
+document.getElementById("progress-fill").style.width=
+(available/30*100)+"%";
+
 }
 
 
 /* =================================
-   MOSTRAR UNA CARTA
+   ABRIR LOS DOS REGALOS
 ================================== */
+
+let selectedDay=1;
 
 function openScene(day){
 
-    const modal=document.getElementById("scene-modal");
+selectedDay=day;
 
-    const letter=dailyLetters[day];
+document.getElementById("modal-day").textContent=
+"NOVIEMBRE · DÍA "+String(day).padStart(2,"0");
 
-    const title=document.getElementById("modal-title");
-    const nickname=document.getElementById("modal-nickname");
-    const body=document.getElementById("modal-body");
-    const photo=document.getElementById("modal-photo");
-    const signature=document.getElementById("modal-signature");
-    const pending=document.getElementById("pending-content");
+document.getElementById("gift-menu").style.display="block";
+document.getElementById("entry-view").classList.remove("active");
 
-    document.getElementById("modal-day").textContent=
-        "NOVIEMBRE · DÍA "+String(day).padStart(2,"0");
+document.getElementById("letter-status").textContent=
+dailyLetters[day]?"✦ DISPONIBLE":"✉ POR ESCRIBIR";
 
-    /* LIMPIAR CONTENIDO ANTERIOR */
+document.getElementById("poem-status").textContent=
+dailyPoems[day]?"✦ DISPONIBLE":"✉ POR ESCRIBIR";
 
-    title.textContent="";
-    nickname.textContent="";
-    body.innerHTML="";
-    signature.textContent="";
-    photo.removeAttribute("src");
-    photo.style.display="none";
+document.getElementById("scene-modal").classList.add("active");
 
-    if(letter){
+}
 
-        title.textContent=letter.title || "Una carta para ti";
-        nickname.textContent=letter.nickname || "";
 
-        const paragraphs=(letter.body || "").split(/\n\s*\n/);
+/* =================================
+   MOSTRAR CARTA O POEMA
+================================== */
 
-        paragraphs.forEach(text=>{
-            if(text.trim()){
-                const p=document.createElement("p");
-                p.textContent=text.trim();
-                body.appendChild(p);
-            }
-        });
+function showEntry(type){
 
-        if(letter.photo){
-            photo.src=letter.photo;
-            photo.style.display="block";
+const isLetter=type==="letter";
 
-            photo.onerror=()=>{
-                photo.style.display="none";
-            };
-        }
+const content=isLetter
+?dailyLetters[selectedDay]
+:dailyPoems[selectedDay];
 
-        signature.textContent=
-            letter.signature || "CON TODO MI AMOR\nJUAN";
+document.getElementById("gift-menu").style.display="none";
+document.getElementById("entry-view").classList.add("active");
 
-        pending.style.display="none";
-        body.style.display="block";
+document.getElementById("entry-type").textContent=
+isLetter?"💌 NUESTRA CARTA":"🥀 NUESTRO POEMA";
 
-    }else{
+const title=document.getElementById("modal-title");
+const nickname=document.getElementById("modal-nickname");
+const body=document.getElementById("modal-body");
+const photo=document.getElementById("modal-photo");
+const signature=document.getElementById("modal-signature");
+const pending=document.getElementById("pending-content");
 
-        title.textContent="Esta carta aún está por escribirse";
-        nickname.textContent="";
-        body.style.display="none";
-        signature.textContent="";
+title.textContent="";
+nickname.textContent="";
+body.innerHTML="";
+signature.textContent="";
 
-        document.getElementById("pending-message").textContent=
-            "Este día ya ha llegado, pero su historia todavía no ha sido escrita. " +
-            "Primero tendremos que vivirlo. Cuando llegue el momento, " +
-            "aquí encontrarás una carta hecha con lo que realmente sucedió entre nosotros.";
+photo.removeAttribute("src");
+photo.style.display="none";
 
-        pending.style.display="block";
-    }
+if(content){
 
-    modal.classList.add("active");
+title.textContent=content.title||
+(isLetter?"Una carta para ti":"Un poema para ti");
+
+nickname.textContent=content.nickname||"";
+
+const paragraphs=(content.body||"").split(/\n\s*\n/);
+
+paragraphs.forEach(text=>{
+if(text.trim()){
+const p=document.createElement("p");
+p.textContent=text.trim();
+body.appendChild(p);
+}
+});
+
+if(content.photo){
+
+photo.src=content.photo;
+photo.style.display="block";
+
+photo.onerror=()=>{
+photo.style.display="none";
+};
+
+}
+
+signature.textContent=content.signature||
+"CON TODO MI AMOR\nJUAN KALETH MENDOZA PRIMERA";
+
+pending.style.display="none";
+body.style.display="block";
+
+}else{
+
+title.textContent=isLetter
+?"Esta carta aún está por escribirse"
+:"Este poema todavía está esperando sus versos";
+
+nickname.textContent="";
+body.style.display="none";
+signature.textContent="";
+
+document.getElementById("pending-message").textContent=
+isLetter
+?"Esta carta tendrá palabras basadas en lo que realmente vivamos. Cuando esté preparada, podrás leerla aquí."
+:"Este poema tendrá sus propios versos, su propio título y su propia esencia. Pronto estará aquí para ti.";
+
+pending.style.display="block";
+
+}
+
+}
+
+
+/* =================================
+   VOLVER A LOS DOS REGALOS
+================================== */
+
+function backToGifts(){
+
+document.getElementById("entry-view").classList.remove("active");
+document.getElementById("gift-menu").style.display="block";
+
 }
 
 
@@ -1140,19 +883,25 @@ function openScene(day){
 ================================== */
 
 function closeModal(){
-    document.getElementById("scene-modal").classList.remove("active");
+
+document.getElementById("scene-modal").classList.remove("active");
+
 }
 
 function closeModalOutside(event){
-    if(event.target.id==="scene-modal"){
-        closeModal();
-    }
+
+if(event.target.id==="scene-modal"){
+closeModal();
+}
+
 }
 
 document.addEventListener("keydown",event=>{
-    if(event.key==="Escape"){
-        closeModal();
-    }
+
+if(event.key==="Escape"){
+closeModal();
+}
+
 });
 
 
@@ -1165,4 +914,5 @@ buildScenes();
 </script>
 
 </body>
-    </html>
+</html>
+ 
