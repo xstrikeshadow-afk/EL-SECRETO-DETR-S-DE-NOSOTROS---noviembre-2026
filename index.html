@@ -1,0 +1,1221 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080609">
+<title>El secreto detrás de nosotros | Noviembre 2026</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+:root {
+    --gold: #d5b477;
+    --gold-light: #f5dfad;
+    --gold-dark: #806239;
+    --black: #080609;
+    --wine: #390d19;
+    --cream: #eee2cc;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--black);
+    color: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ATMÓSFERA GENERAL */
+
+.ambience {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background:
+        radial-gradient(ellipse at 50% 45%,
+        rgba(116,68,35,.14), transparent 55%),
+        radial-gradient(ellipse at 50% 100%,
+        rgba(85,14,31,.18), transparent 60%);
+}
+
+.particles {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--gold);
+    opacity: .45;
+    animation: float 9s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    50% { opacity: .7; }
+    100% {
+        transform: translateY(-110px);
+        opacity: 0;
+    }
+}
+
+/* PANTALLAS */
+
+.screen {
+    display: none;
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.screen.active {
+    display: flex;
+    animation: screenIn 1.1s ease;
+}
+
+@keyframes screenIn {
+    from {
+        opacity: 0;
+        transform: scale(1.015);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* INTRODUCCIÓN */
+
+#invitation {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+.invitation-content {
+    width: 100%;
+    max-width: 570px;
+}
+
+.production-label {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 5px;
+    color: var(--gold);
+    margin-bottom: 40px;
+}
+
+.invitation-symbol {
+    width: 85px;
+    height: 85px;
+    border: 1px solid rgba(213,180,119,.55);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 30px;
+    font-size: 33px;
+    color: var(--gold-light);
+    box-shadow: 0 0 40px rgba(213,180,119,.12);
+    animation: glow 4s infinite ease-in-out;
+}
+
+@keyframes glow {
+    50% {
+        box-shadow: 0 0 55px rgba(213,180,119,.3);
+    }
+}
+
+.invitation-content h1 {
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: clamp(27px, 6vw, 43px);
+    line-height: 1.5;
+    color: var(--gold-light);
+    letter-spacing: 2px;
+}
+
+.invitation-content .intro-text {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #c9bca9;
+    margin: 25px auto;
+    max-width: 390px;
+}
+
+.recipient {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    margin: 35px 0;
+}
+
+.gold-button {
+    background: linear-gradient(135deg,
+        #f2dbac, #b48b4e, #e6c68d);
+    color: #160f0b;
+    border: none;
+    padding: 16px 32px;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: .4s;
+    box-shadow: 0 0 30px rgba(213,180,119,.14);
+}
+
+.gold-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 40px rgba(213,180,119,.35);
+}
+
+.small-note {
+    color: #827464;
+    font-size: 13px;
+    margin-top: 30px;
+    letter-spacing: 1px;
+}
+
+/* SOBRE */
+
+#envelope-screen {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 25px;
+}
+
+.envelope-content {
+    width: 100%;
+    max-width: 470px;
+}
+
+.envelope-content h2 {
+    font-family: 'Cinzel', serif;
+    color: var(--gold-light);
+    font-size: 23px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.envelope-content p {
+    font-size: 18px;
+    color: #bcae9b;
+    margin-bottom: 40px;
+}
+
+.envelope {
+    position: relative;
+    width: min(290px, 82vw);
+    height: 190px;
+    margin: 0 auto 35px;
+    background: linear-gradient(145deg,#541c28,#210c13);
+    border: 1px solid #9e7748;
+    box-shadow: 0 20px 60px #000;
+    cursor: pointer;
+}
+
+.envelope::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg,
+        transparent 49.5%, #7c3940 50%, transparent 51%);
+    opacity: .7;
+}
+
+.envelope-flap {
+    position: absolute;
+    inset: 0;
+    background: #762d3c;
+    clip-path: polygon(0 0,100% 0,50% 62%);
+    transform-origin: top;
+    transition: transform .8s ease;
+    z-index: 3;
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.seal {
+    position: absolute;
+    width: 51px;
+    height: 51px;
+    border-radius: 50%;
+    background: radial-gradient(circle,#e8c88e,#997040);
+    color: #4a1b20;
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    left: 50%;
+    top: 48%;
+    transform: translate(-50%,-50%);
+    z-index: 4;
+    box-shadow: 0 0 20px rgba(213,180,119,.3);
+    transition: .5s;
+}
+
+.envelope.open .seal {
+    opacity: 0;
+    transform: translate(-50%,-80%);
+}
+
+.envelope-hint {
+    font-size: 13px !important;
+    color: var(--gold) !important;
+    letter-spacing: 2px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    50% { opacity: .45; }
+}
+
+/* REVELACIÓN CINEMATOGRÁFICA */
+
+#reveal {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    padding: 30px 15px;
+}
+
+.cinema {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 50% 50%,
+        rgba(157,107,52,.23), transparent 50%),
+        linear-gradient(#10080d,#050406);
+}
+
+.curtain {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 51%;
+    z-index: 2;
+    background:
+        repeating-linear-gradient(90deg,
+        #210810 0px,
+        #5b1828 25px,
+        #270914 52px);
+    box-shadow: inset 0 0 60px #000,
+                0 0 30px #000;
+    transition: transform 2.5s cubic-bezier(.7,0,.2,1);
+}
+
+.curtain.left {
+    left: 0;
+    transform-origin: left;
+}
+
+.curtain.right {
+    right: 0;
+    transform-origin: right;
+}
+
+#reveal.opened .curtain.left {
+    transform: translateX(-105%);
+}
+
+#reveal.opened .curtain.right {
+    transform: translateX(105%);
+}
+
+.reveal-content {
+    position: relative;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 2s ease 1.3s;
+    max-width: 700px;
+    padding: 20px;
+}
+
+#reveal.opened .reveal-content {
+    opacity: 1;
+}
+
+.film-label {
+    color: var(--gold);
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 6px;
+    margin-bottom: 35px;
+}
+
+.reveal-content h1 {
+    color: var(--gold-light);
+    font-family: 'Cinzel', serif;
+    font-weight: 400;
+    font-size: clamp(32px, 8vw, 65px);
+    line-height: 1.4;
+    text-shadow: 0 0 30px rgba(213,180,119,.28);
+}
+
+.reveal-content .tagline {
+    font-size: 22px;
+    font-style: italic;
+    color: #c7b89f;
+    margin-top: 25px;
+}
+
+.reveal-content .credits {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    margin-top: 50px;
+    line-height: 2.3;
+}
+
+#continue-button {
+    margin-top: 35px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s;
+}
+
+#reveal.opened #continue-button {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* PANEL PRINCIPAL */
+
+#main {
+    display: none;
+    padding: 35px 16px 65px;
+}
+
+#main.active {
+    display: block;
+}
+
+.main-container {
+    max-width: 950px;
+    margin: auto;
+}
+
+.main-header {
+    text-align: center;
+    padding: 35px 10px 45px;
+    border-bottom: 1px solid rgba(213,180,119,.2);
+}
+
+.main-header .overline {
+    font-family: 'Cinzel',serif;
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: var(--gold);
+    margin-bottom: 20px;
+}
+
+.main-header h1 {
+    font-family: 'Cinzel',serif;
+    font-size: clamp(25px,6vw,45px);
+    font-weight: 400;
+    color: var(--gold-light);
+    line-height: 1.4;
+}
+
+.main-header p {
+    font-size: 19px;
+    color: #a99b88;
+    margin-top: 18px;
+}
+
+.main-message {
+    text-align: center;
+    max-width: 620px;
+    margin: 40px auto;
+    padding: 25px;
+    background: linear-gradient(135deg,
+        rgba(71,35,35,.18),rgba(213,180,119,.035));
+    border: 1px solid rgba(213,180,119,.2);
+}
+
+.main-message .quote {
+    font-size: 25px;
+    font-style: italic;
+    color: var(--gold-light);
+    line-height: 1.5;
+}
+
+.main-message small {
+    display: block;
+    margin-top: 18px;
+    color: #9a8974;
+    letter-spacing: 2px;
+    font-family: 'Cinzel',serif;
+    font-size: 9px;
+}
+
+/* ACTOS */
+
+.section-heading {
+    text-align: center;
+    font-family: 'Cinzel',serif;
+    color: var(--gold);
+    font-size: 12px;
+    letter-spacing: 4px;
+    margin: 55px 0 25px;
+}
+
+.acts {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 15px;
+}
+
+.act {
+    position: relative;
+    padding: 27px 19px;
+    min-height: 160px;
+    background: linear-gradient(145deg,
+        rgba(75,32,38,.36),rgba(18,13,15,.8));
+    border: 1px solid rgba(213,180,119,.2);
+    overflow: hidden;
+    transition: .4s;
+}
+
+.act:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+}
+
+.act .number {
+    color: var(--gold-dark);
+    font-family: 'Cinzel',serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+}
+
+.act h3 {
+    color: var(--gold-light);
+    font-size: 21px;
+    font-weight: 500;
+    margin: 15px 0 8px;
+}
+
+.act p {
+    color: #a99c8c;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* ESCENAS */
+
+.scene-grid {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 10px;
+}
+
+.scene {
+    aspect-ratio: 1/1.1;
+    border: 1px solid rgba(213,180,119,.25);
+    background: linear-gradient(145deg,#21151a,#0c090b);
+    color: var(--gold);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 9px;
+    transition: .3s;
+}
+
+.scene:hover:not(:disabled) {
+    background: linear-gradient(145deg,#57313a,#25151b);
+    transform: translateY(-3px);
+    border-color: var(--gold);
+}
+
+.scene:disabled {
+    opacity: .42;
+    cursor: not-allowed;
+}
+
+.scene strong {
+    font-family: 'Cinzel',serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.scene span {
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.scene-icon {
+    font-size: 19px;
+}
+
+/* ESTADO */
+
+.progress-info {
+    text-align: center;
+    margin-top: 25px;
+    color: #b6a48b;
+    font-size: 15px;
+}
+
+.progress-bar {
+    height: 3px;
+    max-width: 400px;
+    margin: 15px auto;
+    background: #30252a;
+}
+
+.progress-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,#997044,#f5dfad);
+    transition: width .6s;
+}
+
+/* VENTANA DE ESCENA */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: rgba(0,0,0,.94);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-box {
+    width: 100%;
+    max-width: 430px;
+    text-align: center;
+    padding: 35px 24px;
+    border: 1px solid rgba(213,180,119,.45);
+    background: linear-gradient(145deg,#21151a,#0c090b);
+}
+
+.modal-box h2 {
+    color: var(--gold-light);
+    font-family: 'Cinzel',serif;
+    font-weight: 400;
+    font-size: 23px;
+    margin: 20px 0;
+}
+
+.modal-box p {
+    color: #b6a994;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.modal-box button {
+    margin-top: 25px;
+}
+
+/* PIE */
+
+.main-footer {
+    text-align: center;
+    border-top: 1px solid rgba(213,180,119,.2);
+    margin-top: 65px;
+    padding-top: 30px;
+}
+
+.main-footer p {
+    color: #8f806e;
+    font-size: 14px;
+    line-height: 2;
+}
+
+.main-footer strong {
+    display: block;
+    color: var(--gold);
+    font-family: 'Cinzel',serif;
+    font-size: 11px;
+    letter-spacing: 3px;
+    margin-top: 15px;
+}
+
+@media(max-width:550px) {
+    .acts {
+        grid-template-columns: 1fr;
+    }
+
+    .scene-grid {
+        grid-template-columns: repeat(5,1fr);
+        gap: 6px;
+    }
+
+    .scene strong {
+        font-size: 15px;
+    }
+
+    .scene span {
+        font-size: 8px;
+    }
+
+    .scene-icon {
+        font-size: 16px;
+    }
+
+    #main {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambience"></div>
+<div class="particles" id="particles"></div>
+
+<!-- =================================
+     ESCENA 0: INVITACIÓN SECRETA
+================================== -->
+
+<section class="screen active" id="invitation">
+
+    <div class="invitation-content">
+
+        <div class="production-label">
+            UNA INVITACIÓN MUY ESPECIAL
+        </div>
+
+        <div class="invitation-symbol">✉</div>
+
+        <h1>
+            TIENES UNA<br>
+            INVITACIÓN<br>
+            PENDIENTE
+        </h1>
+
+        <p class="intro-text">
+            Hay algo que alguien ha preparado
+            especialmente para ti.
+            Una historia que todavía no conoces
+            y un secreto que espera ser descubierto.
+        </p>
+
+        <div class="recipient">
+            PARA: VALERIA PETRO VILLAZÓN
+        </div>
+
+        <button class="gold-button"
+                onclick="showScreen('envelope-screen')">
+            DESCUBRIR INVITACIÓN
+        </button>
+
+        <p class="small-note">
+            NOVIEMBRE · 2026
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     ESCENA 1: EL SOBRE
+================================== -->
+
+<section class="screen" id="envelope-screen">
+
+    <div class="envelope-content">
+
+        <div class="production-label">
+            CORRESPONDENCIA CONFIDENCIAL
+        </div>
+
+        <h2>Una última cosa antes de comenzar...</h2>
+
+        <p>
+            Alguien ha dejado un mensaje
+            esperando a que lo descubras.
+        </p>
+
+        <div class="envelope" id="envelope"
+             onclick="openEnvelope()">
+
+            <div class="envelope-flap"></div>
+            <div class="seal">♡</div>
+
+        </div>
+
+        <p class="envelope-hint" id="envelope-hint">
+            TOCA EL SOBRE PARA ABRIRLO
+        </p>
+
+        <p class="small-note">
+            Algunas historias merecen ser descubiertas.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     ESCENA 2: REVELACIÓN
+================================== -->
+
+<section class="screen" id="reveal">
+
+    <div class="cinema"></div>
+
+    <div class="curtain left"></div>
+    <div class="curtain right"></div>
+
+    <div class="reveal-content">
+
+        <div class="film-label">
+            UNA PRODUCCIÓN EXCLUSIVA
+        </div>
+
+        <h1>
+            EL SECRETO<br>
+            DETRÁS DE<br>
+            NOSOTROS
+        </h1>
+
+        <p class="tagline">
+            «No todas las historias revelan
+            sus secretos desde el principio...»
+        </p>
+
+        <div class="credits">
+            PROTAGONISTA: VALERIA<br>
+            UNA HISTORIA DE JUAN<br>
+            NOVIEMBRE 2026
+        </div>
+
+        <button class="gold-button"
+                id="continue-button"
+                onclick="showScreen('main')">
+            ENTRAR EN LA HISTORIA
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     ESCENA 3: MUNDO PRINCIPAL
+================================== -->
+
+<section class="screen" id="main">
+
+<div class="main-container">
+
+    <header class="main-header">
+
+        <div class="overline">
+            UNA PRODUCCIÓN EXCLUSIVA
+        </div>
+
+        <h1>
+            EL SECRETO<br>
+            DETRÁS DE NOSOTROS
+        </h1>
+
+        <p>
+            Bienvenida a una historia que todavía
+            tiene mucho por revelar.
+        </p>
+
+    </header>
+
+
+    <div class="main-message">
+
+        <div class="quote">
+            «Si has llegado hasta aquí,
+            es porque esta historia
+            también tiene un lugar para ti».
+        </div>
+
+        <small>
+            MENSAJE DEL DIRECTOR
+        </small>
+
+    </div>
+
+
+    <!-- ACTOS -->
+
+    <div class="section-heading">
+        LOS CUATRO ACTOS
+    </div>
+
+    <div class="acts">
+
+        <div class="act">
+            <div class="number">ACTO I · 01—07</div>
+            <h3>El misterio comienza</h3>
+            <p>
+                Una invitación, un secreto
+                y las primeras pistas.
+            </p>
+        </div>
+
+        <div class="act">
+            <div class="number">ACTO II · 08—14</div>
+            <h3>Las piezas del corazón</h3>
+            <p>
+                Recuerdos, sentimientos
+                y pequeñas revelaciones.
+            </p>
+        </div>
+
+        <div class="act">
+            <div class="number">ACTO III · 15—23</div>
+            <h3>Lo que falta por vivir</h3>
+            <p>
+                Aventuras, deseos y
+                nuevos descubrimientos.
+            </p>
+        </div>
+
+        <div class="act">
+            <div class="number">ACTO IV · 24—30</div>
+            <h3>La última revelación</h3>
+            <p>
+                Todo conduce hacia
+                una escena inolvidable.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- ESCENAS -->
+
+    <div class="section-heading">
+        ARCHIVO DE ESCENAS
+    </div>
+
+    <div class="scene-grid" id="scene-grid">
+    </div>
+
+    <div class="progress-info" id="progress-info">
+        0 DE 30 ESCENAS DISPONIBLES
+    </div>
+
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+
+    <!-- PIE -->
+
+    <footer class="main-footer">
+
+        <p>
+            Cada escena guarda una parte de esta historia.<br>
+            No tengas prisa por descubrirla.
+        </p>
+
+        <strong>
+            JUAN & VALERIA
+        </strong>
+
+        <p style="margin-top:15px">
+            NOVIEMBRE · 2026
+        </p>
+
+    </footer>
+
+</div>
+
+</section>
+
+
+<!-- =================================
+     MODAL DE ESCENAS
+================================== -->
+
+<div class="modal" id="scene-modal">
+
+    <div class="modal-box">
+
+        <div style="font-size:35px;color:#d5b477">
+            ✦
+        </div>
+
+        <h2 id="modal-title">
+            ESCENA
+        </h2>
+
+        <p id="modal-description">
+            Esta parte de la historia
+            todavía está por descubrirse.
+        </p>
+
+        <button class="gold-button"
+                onclick="closeModal()">
+            VOLVER A LA EXPERIENCIA
+        </button>
+
+    </div>
+
+</div>
+
+
+<script>
+
+/* =================================
+   PARTÍCULAS CINEMATOGRÁFICAS
+================================== */
+
+const particles = document.getElementById("particles");
+
+for(let i=0; i<35; i++) {
+
+    const p = document.createElement("div");
+
+    p.className = "particle";
+
+    p.style.left = Math.random()*100 + "%";
+    p.style.top = Math.random()*100 + "%";
+    p.style.animationDelay = Math.random()*8 + "s";
+    p.style.animationDuration = (6+Math.random()*8) + "s";
+
+    particles.appendChild(p);
+}
+
+
+/* =================================
+   CAMBIO DE PANTALLAS
+================================== */
+
+function showScreen(id) {
+
+    document.querySelectorAll(".screen").forEach(screen => {
+        screen.classList.remove("active");
+    });
+
+    const target = document.getElementById(id);
+
+    target.classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    if(id === "main") {
+        buildScenes();
+    }
+}
+
+
+/* =================================
+   APERTURA DEL SOBRE
+================================== */
+
+let envelopeOpened = false;
+
+function openEnvelope() {
+
+    if(envelopeOpened) return;
+
+    envelopeOpened = true;
+
+    document.getElementById("envelope")
+        .classList.add("open");
+
+    document.getElementById("envelope-hint")
+        .textContent = "EL MENSAJE HA SIDO REVELADO...";
+
+    setTimeout(() => {
+
+        showScreen("reveal");
+
+        setTimeout(() => {
+
+            document.getElementById("reveal")
+                .classList.add("opened");
+
+        },300);
+
+    },1200);
+}
+
+
+/* =================================
+   30 ESCENAS DE NOVIEMBRE
+================================== */
+
+const sceneTitles = [
+    "La invitación",
+    "El primer indicio",
+    "Una señal inesperada",
+    "El expediente",
+    "La primera pista",
+    "Algo que recordar",
+    "La puerta secreta",
+    "Una mirada diferente",
+    "El recuerdo escondido",
+    "Las palabras pendientes",
+    "Una pequeña aventura",
+    "La verdad de una sonrisa",
+    "El mensaje desconocido",
+    "Una parte de nosotros",
+    "La segunda llave",
+    "El lugar especial",
+    "Una promesa",
+    "Lo que no se ve",
+    "El secreto de Noah",
+    "Una nueva pista",
+    "El mapa de los sueños",
+    "Un encuentro imaginario",
+    "La pieza que faltaba",
+    "La habitación dorada",
+    "La pregunta final",
+    "El último misterio",
+    "La verdad detrás de todo",
+    "La escena inesperada",
+    "Antes de los créditos",
+    "La última escena"
+];
+
+
+/* =================================
+   DESBLOQUEO SEGÚN FECHA
+================================== */
+
+function buildScenes() {
+
+    const grid = document.getElementById("scene-grid");
+
+    grid.innerHTML = "";
+
+    const now = new Date();
+
+    const isNovember2026 =
+        now.getFullYear() === 2026 &&
+        now.getMonth() === 10;
+
+    const currentDay = isNovember2026
+        ? now.getDate()
+        : (now > new Date(2026,10,30,23,59,59) ? 30 : 0);
+
+    let available = 0;
+
+    sceneTitles.forEach((title,index) => {
+
+        const day = index+1;
+        const unlocked = day <= currentDay;
+
+        if(unlocked) available++;
+
+        const button = document.createElement("button");
+
+        button.className = "scene";
+        button.disabled = !unlocked;
+
+        button.innerHTML = `
+            <div class="scene-icon">
+                ${unlocked ? "✦" : "🔒"}
+            </div>
+            <strong>${String(day).padStart(2,"0")}</strong>
+            <span>${unlocked ? "DESCUBRIR" : "BLOQUEADA"}</span>
+        `;
+
+        button.addEventListener("click", () => {
+            openScene(day,title);
+        });
+
+        grid.appendChild(button);
+
+    });
+
+    document.getElementById("progress-info")
+        .textContent =
+        available + " DE 30 ESCENAS DISPONIBLES";
+
+    document.getElementById("progress-fill")
+        .style.width = (available/30*100) + "%";
+}
+
+
+/* =================================
+   VENTANA DE ESCENAS
+================================== */
+
+function openScene(day,title) {
+
+    document.getElementById("modal-title")
+        .textContent =
+        "ESCENA " + String(day).padStart(2,"0");
+
+    document.getElementById("modal-description")
+        .textContent =
+        title + ". Esta escena todavía necesita su historia. Pronto podrás descubrir lo que Juan ha preparado para ti.";
+
+    document.getElementById("scene-modal")
+        .classList.add("active");
+}
+
+function closeModal() {
+
+    document.getElementById("scene-modal")
+        .classList.remove("active");
+}
+
+
+/* =================================
+   CERRAR MODAL CON ESCAPE
+================================== */
+
+document.addEventListener("keydown", e => {
+
+    if(e.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
