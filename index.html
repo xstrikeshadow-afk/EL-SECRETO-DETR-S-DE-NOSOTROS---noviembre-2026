@@ -29,7 +29,8 @@ p{line-height:1.9;color:#e7d5d3}
 .curtain:before,.curtain:after{content:"";position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#210b17,#641e35,#210b17);transition:transform 1.3s ease}
 .curtain:before{left:0}.curtain:after{right:0}
 .curtain.open:before{transform:translateX(-100%)}.curtain.open:after{transform:translateX(100%)}
-#main{display:block;padding:35px 14px 70px}
+#main{display:none;padding:35px 14px 70px}
+#main.active{display:block}
 .hero{max-width:950px;margin:0 auto 35px;text-align:center}
 .hero .sub{letter-spacing:3px;color:#d8b77e;font-size:11px}
 .hero h1{font-size:clamp(48px,11vw,85px)}
