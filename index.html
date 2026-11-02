@@ -4,984 +4,205 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080609">
-<title>El secreto detrás de nosotros | Noviembre 2026</title>
-
+<meta name="theme-color" content="#10080d">
+<title>El secreto detrás de nosotros</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
-
-:root{
---gold:#d5b477;
---gold-light:#f5dfad;
---gold-dark:#806239;
---black:#080609;
---wine:#390d19;
---cream:#eee2cc;
-}
-
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--cream);font-family:'Cormorant Garamond',serif;overflow-x:hidden}
-button{font-family:inherit}
-
-.ambience{
-position:fixed;inset:0;pointer-events:none;z-index:0;
-background:radial-gradient(ellipse at 50% 45%,rgba(116,68,35,.14),transparent 55%),radial-gradient(ellipse at 50% 100%,rgba(85,14,31,.18),transparent 60%);
-}
-
-.particles{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.particle{
-position:absolute;width:3px;height:3px;background:var(--gold-light);
-border-radius:50%;box-shadow:0 0 10px var(--gold);opacity:.45;
-animation:float 9s infinite ease-in-out;
-}
-@keyframes float{
-0%{transform:translateY(20px);opacity:0}
-50%{opacity:.7}
-100%{transform:translateY(-110px);opacity:0}
-}
-
-.screen{display:none;position:relative;z-index:2;min-height:100vh;width:100%}
-.screen.active{display:flex;animation:screenIn 1.1s ease}
-@keyframes screenIn{
-from{opacity:0;transform:scale(1.015)}
-to{opacity:1;transform:scale(1)}
-}
-
-/* INVITACIÓN */
-
-#invitation{align-items:center;justify-content:center;text-align:center;padding:35px 20px}
-.invitation-content{width:100%;max-width:570px}
-.production-label{
-font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;
-color:var(--gold);margin-bottom:40px;
-}
-.invitation-symbol{
-width:85px;height:85px;border:1px solid rgba(213,180,119,.55);
-border-radius:50%;display:grid;place-items:center;margin:0 auto 30px;
-font-size:33px;color:var(--gold-light);
-box-shadow:0 0 40px rgba(213,180,119,.12);
-animation:glow 4s infinite ease-in-out;
-}
-@keyframes glow{50%{box-shadow:0 0 55px rgba(213,180,119,.3)}}
-.invitation-content h1{
-font-family:'Cinzel',serif;font-weight:400;
-font-size:clamp(27px,6vw,43px);line-height:1.5;
-color:var(--gold-light);letter-spacing:2px;
-}
-.intro-text{
-font-size:19px;line-height:1.7;color:#c9bca9;
-margin:25px auto;max-width:390px;
-}
-.recipient{
-color:var(--gold);font-family:'Cinzel',serif;
-font-size:12px;letter-spacing:3px;margin:35px 0;
-}
-.gold-button{
-background:linear-gradient(135deg,#f2dbac,#b48b4e,#e6c68d);
-color:#160f0b;border:none;padding:16px 32px;
-font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px;
-cursor:pointer;transition:.4s;
-box-shadow:0 0 30px rgba(213,180,119,.14);
-}
-.gold-button:hover{transform:translateY(-3px);box-shadow:0 0 40px rgba(213,180,119,.35)}
-.small-note{color:#827464;font-size:13px;margin-top:30px;letter-spacing:1px}
-
-/* SOBRE */
-
-#envelope-screen{justify-content:center;align-items:center;text-align:center;padding:25px}
-.envelope-content{width:100%;max-width:470px}
-.envelope-content h2{
-font-family:'Cinzel',serif;color:var(--gold-light);
-font-size:23px;font-weight:400;margin-bottom:20px;
-}
-.envelope-content p{font-size:18px;color:#bcae9b;margin-bottom:40px}
-.envelope{
-position:relative;width:min(290px,82vw);height:190px;margin:0 auto 35px;
-background:linear-gradient(145deg,#541c28,#210c13);
-border:1px solid #9e7748;box-shadow:0 20px 60px #000;cursor:pointer;
-}
-.envelope::before{
-content:"";position:absolute;inset:0;
-background:linear-gradient(145deg,transparent 49.5%,#7c3940 50%,transparent 51%);
-opacity:.7;
-}
-.envelope-flap{
-position:absolute;inset:0;background:#762d3c;
-clip-path:polygon(0 0,100% 0,50% 62%);
-transform-origin:top;transition:transform .8s ease;z-index:3;
-}
-.envelope.open .envelope-flap{transform:rotateX(180deg)}
-.seal{
-position:absolute;width:51px;height:51px;border-radius:50%;
-background:radial-gradient(circle,#e8c88e,#997040);color:#4a1b20;
-display:grid;place-items:center;font-size:22px;left:50%;top:48%;
-transform:translate(-50%,-50%);z-index:4;
-box-shadow:0 0 20px rgba(213,180,119,.3);transition:.5s;
-}
-.envelope.open .seal{opacity:0;transform:translate(-50%,-80%)}
-.envelope-hint{
-font-size:13px!important;color:var(--gold)!important;
-letter-spacing:2px;animation:pulse 2s infinite;
-}
-@keyframes pulse{50%{opacity:.45}}
-
-/* REVELACIÓN CINEMATOGRÁFICA */
-
-#reveal{
-align-items:center;justify-content:center;text-align:center;
-overflow:hidden;padding:30px 15px;
-}
-.cinema{
-position:absolute;inset:0;
-background:radial-gradient(ellipse at 50% 50%,rgba(157,107,52,.23),transparent 50%),linear-gradient(#10080d,#050406);
-}
-.curtain{
-position:absolute;top:0;height:100%;width:51%;z-index:2;
-background:repeating-linear-gradient(90deg,#210810 0,#5b1828 25px,#270914 52px);
-box-shadow:inset 0 0 60px #000,0 0 30px #000;
-transition:transform 2.5s cubic-bezier(.7,0,.2,1);
-}
-.curtain.left{left:0;transform-origin:left}
-.curtain.right{right:0;transform-origin:right}
-#reveal.opened .curtain.left{transform:translateX(-105%)}
-#reveal.opened .curtain.right{transform:translateX(105%)}
-.reveal-content{
-position:relative;z-index:3;opacity:0;
-transition:opacity 2s ease 1.3s;max-width:700px;padding:20px;
-}
-#reveal.opened .reveal-content{opacity:1}
-.film-label{
-color:var(--gold);font-family:'Cinzel',serif;
-font-size:10px;letter-spacing:6px;margin-bottom:35px;
-}
-.reveal-content h1{
-color:var(--gold-light);font-family:'Cinzel',serif;
-font-weight:400;font-size:clamp(32px,8vw,65px);
-line-height:1.4;text-shadow:0 0 30px rgba(213,180,119,.28);
-}
-.tagline{font-size:22px;font-style:italic;color:#c7b89f;margin-top:25px}
-.credits{
-font-family:'Cinzel',serif;font-size:10px;letter-spacing:3px;
-color:var(--gold);margin-top:50px;line-height:2.3;
-}
-#continue-button{margin-top:35px;opacity:0;pointer-events:none;transition:opacity 1s}
-#reveal.opened #continue-button{opacity:1;pointer-events:auto}
-
-/* PANEL PRINCIPAL */
-
-#main{display:none;padding:35px 16px 65px}
-#main.active{display:block}
-.main-container{max-width:950px;margin:auto}
-.main-header{
-text-align:center;padding:35px 10px 45px;
-border-bottom:1px solid rgba(213,180,119,.2);
-}
-.main-header .overline{
-font-family:'Cinzel',serif;font-size:10px;
-letter-spacing:4px;color:var(--gold);margin-bottom:20px;
-}
-.main-header h1{
-font-family:'Cinzel',serif;font-size:clamp(25px,6vw,45px);
-font-weight:400;color:var(--gold-light);line-height:1.4;
-}
-.main-header p{font-size:19px;color:#a99b88;margin-top:18px}
-.main-message{
-text-align:center;max-width:620px;margin:40px auto;padding:25px;
-background:linear-gradient(135deg,rgba(71,35,35,.18),rgba(213,180,119,.035));
-border:1px solid rgba(213,180,119,.2);
-}
-.main-message .quote{
-font-size:25px;font-style:italic;color:var(--gold-light);line-height:1.5;
-}
-.main-message small{
-display:block;margin-top:18px;color:#9a8974;letter-spacing:2px;
-font-family:'Cinzel',serif;font-size:9px;
-}
-
-/* ACTOS */
-
-.section-heading{
-text-align:center;font-family:'Cinzel',serif;color:var(--gold);
-font-size:12px;letter-spacing:4px;margin:55px 0 25px;
-}
-.acts{display:grid;grid-template-columns:repeat(2,1fr);gap:15px}
-.act{
-position:relative;padding:27px 19px;min-height:160px;
-background:linear-gradient(145deg,rgba(75,32,38,.36),rgba(18,13,15,.8));
-border:1px solid rgba(213,180,119,.2);overflow:hidden;transition:.4s;
-}
-.act:hover{transform:translateY(-4px);border-color:var(--gold)}
-.act .number{color:var(--gold-dark);font-family:'Cinzel',serif;font-size:11px;letter-spacing:2px}
-.act h3{color:var(--gold-light);font-size:21px;font-weight:500;margin:15px 0 8px}
-.act p{color:#a99c8c;font-size:15px;line-height:1.5}
-
-/* CASILLAS */
-
-.scene-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
-.scene{
-aspect-ratio:1/1.1;border:1px solid rgba(213,180,119,.25);
-background:linear-gradient(145deg,#21151a,#0c090b);
-color:var(--gold);cursor:pointer;display:flex;flex-direction:column;
-justify-content:center;align-items:center;gap:9px;transition:.3s;padding:5px;
-}
-.scene:hover:not(:disabled){
-background:linear-gradient(145deg,#57313a,#25151b);
-transform:translateY(-3px);border-color:var(--gold);
-}
-.scene:disabled{opacity:.42;cursor:not-allowed}
-.scene strong{font-family:'Cinzel',serif;font-size:18px;font-weight:400}
-.scene span{font-size:9px;letter-spacing:1px;text-align:center}
-.scene-icon{font-size:19px}
-
-/* PROGRESO */
-
-.progress-info{text-align:center;margin-top:25px;color:#b6a48b;font-size:15px}
-.progress-bar{height:3px;max-width:400px;margin:15px auto;background:#30252a}
-.progress-fill{
-height:100%;width:0%;
-background:linear-gradient(90deg,#997044,#f5dfad);transition:width .6s;
-}
-
-/* MODAL */
-
-.modal{
-display:none;position:fixed;inset:0;z-index:20;
-background:rgba(0,0,0,.96);align-items:center;justify-content:center;
-padding:15px;overflow-y:auto;
-}
-.modal.active{display:flex}
-.modal-box{
-width:100%;max-width:570px;max-height:92vh;overflow-y:auto;
-text-align:center;padding:30px 23px;
-border:1px solid rgba(213,180,119,.45);
-background:radial-gradient(ellipse at top,rgba(95,49,49,.22),transparent 65%),linear-gradient(145deg,#21151a,#0c090b);
-box-shadow:0 20px 80px #000;animation:modalIn .6s ease;
-}
-@keyframes modalIn{
-from{opacity:0;transform:translateY(20px)}
-to{opacity:1;transform:translateY(0)}
-}
-.modal-symbol{font-size:32px;color:var(--gold)}
-.modal-day{
-font-family:'Cinzel',serif;font-size:10px;letter-spacing:4px;
-color:var(--gold);margin-top:15px;
-}
-.modal-box h2{
-color:var(--gold-light);font-family:'Cinzel',serif;font-weight:400;
-font-size:clamp(20px,5vw,28px);line-height:1.5;margin:20px 0 12px;
-}
-.modal-nickname{color:#d7b77f;font-size:21px;font-style:italic;margin-bottom:22px}
-.modal-photo{
-display:none;width:100%;max-height:340px;object-fit:contain;
-margin:15px auto 25px;border:1px solid rgba(213,180,119,.4);
-box-shadow:0 10px 35px #000;
-}
-.modal-body{
-text-align:left;color:#e1d4c1;font-size:20px;
-line-height:1.85;white-space:pre-line;
-}
-.modal-body p{margin-bottom:17px}
-.modal-signature{
-color:var(--gold);font-family:'Cinzel',serif;
-font-size:11px;letter-spacing:2px;line-height:2;
-margin-top:30px;white-space:pre-line;
-}
-.pending-icon{font-size:37px;margin:20px 0;color:var(--gold)}
-.pending-message{color:#c4b49e;font-size:19px;line-height:1.7;margin:15px 0}
-
-/* DOS REGALOS */
-
-.gift-options{display:grid;grid-template-columns:1fr;gap:15px;margin:28px 0}
-.gift-button{
-width:100%;padding:23px 15px;
-background:linear-gradient(145deg,#291820,#100b0e);
-border:1px solid rgba(213,180,119,.4);
-color:var(--gold-light);cursor:pointer;transition:.35s;
-}
-.gift-button:hover{
-border-color:var(--gold);transform:translateY(-3px);
-background:linear-gradient(145deg,#48232e,#1b1015);
-}
-.gift-icon{display:block;font-size:29px;margin-bottom:10px}
-.gift-button strong{
-display:block;font-family:'Cinzel',serif;font-size:13px;letter-spacing:2px;
-}
-.gift-button small{display:block;color:#b8a58d;margin-top:8px;font-size:15px}
-.gift-status{display:block;color:var(--gold);font-size:10px;letter-spacing:2px;margin-top:13px}
-.back-button{
-background:transparent;border:1px solid rgba(213,180,119,.35);
-color:var(--gold);padding:12px 20px;margin-top:25px;
-cursor:pointer;letter-spacing:1px;
-}
-.entry-content{display:none}
-.entry-content.active{display:block}
-.entry-label{
-font-family:'Cinzel',serif;font-size:10px;
-letter-spacing:3px;color:var(--gold);margin-top:20px;
-}
-
-/* PIE */
-
-.main-footer{
-text-align:center;border-top:1px solid rgba(213,180,119,.2);
-margin-top:65px;padding-top:30px;
-}
-.main-footer p{color:#8f806e;font-size:14px;line-height:2}
-.main-footer strong{
-display:block;color:var(--gold);font-family:'Cinzel',serif;
-font-size:11px;letter-spacing:3px;margin-top:15px;
-}
-
-@media(max-width:550px){
-.acts{grid-template-columns:1fr}
-.scene-grid{grid-template-columns:repeat(5,1fr);gap:6px}
-.scene strong{font-size:15px}
-.scene span{font-size:8px}
-.scene-icon{font-size:16px}
-#main{padding-left:12px;padding-right:12px}
-.modal-box{padding:25px 18px}
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap');
+:root{--gold:#e6c58b;--wine:#481b2c;--bg:#10080d;--soft:#c9a9a9}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#421b2c 0%,#170c14 45%,#080609 100%);color:#f8eade;font-family:Montserrat,sans-serif;min-height:100vh}
+button{font:inherit;cursor:pointer}
+.screen{display:none;min-height:100vh;padding:28px 18px;align-items:center;justify-content:center;text-align:center}
+.screen.active{display:flex}
+.panel{width:min(850px,100%);padding:35px 22px;border:1px solid #b88a624d;background:#160d14d9;box-shadow:0 0 70px #0009;border-radius:22px}
+.eyebrow{color:var(--gold);letter-spacing:4px;font-size:10px;text-transform:uppercase}
+h1,h2{font-family:"Cormorant Garamond",serif;font-weight:500}
+h1{font-size:clamp(43px,10vw,76px);line-height:1.02;margin:18px 0;color:#f4dfc2}
+h2{font-size:clamp(30px,7vw,46px);color:var(--gold);margin:12px 0}
+p{line-height:1.9;color:#e7d5d3}
+.gold{color:var(--gold)}
+.action{border:1px solid var(--gold);background:linear-gradient(135deg,#7b3b4c,#351522);color:#fff0dc;padding:14px 24px;border-radius:40px;margin:12px 5px;letter-spacing:1px;transition:.3s}
+.action:hover{transform:translateY(-2px);box-shadow:0 0 22px #d6ad7855}
+.envelope{font-size:92px;filter:drop-shadow(0 0 20px #d8ad7755);animation:float 3s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-10px)}}
+.curtain{position:fixed;inset:0;z-index:5;pointer-events:none;display:none}
+.curtain:before,.curtain:after{content:"";position:absolute;top:0;bottom:0;width:50%;background:linear-gradient(90deg,#210b17,#641e35,#210b17);transition:transform 1.3s ease}
+.curtain:before{left:0}.curtain:after{right:0}
+.curtain.open:before{transform:translateX(-100%)}.curtain.open:after{transform:translateX(100%)}
+#main{display:block;padding:35px 14px 70px}
+.hero{max-width:950px;margin:0 auto 35px;text-align:center}
+.hero .sub{letter-spacing:3px;color:#d8b77e;font-size:11px}
+.hero h1{font-size:clamp(48px,11vw,85px)}
+.hero p{max-width:620px;margin:0 auto}
+.legend{color:#c7a9a9;font-size:12px;margin:18px 0}
+.calendar{max-width:950px;margin:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.day{position:relative;min-height:115px;border:1px solid #b58a674d;border-radius:15px;background:linear-gradient(145deg,#28131f,#120b12);padding:16px 10px;text-align:center;overflow:hidden}
+.day.unlocked{border-color:#d8b77e;box-shadow:inset 0 0 20px #d8b77e0c}
+.day.locked{opacity:.58}
+.day .number{font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--gold)}
+.day .date{font-size:10px;letter-spacing:1px;color:#c9b2b0}
+.day .status{font-size:10px;margin-top:8px;color:#d6b98e}
+.day button{background:none;border:0;color:inherit;width:100%;height:100%;padding:0}
+.day button:disabled{cursor:not-allowed}
+#choice{position:fixed;inset:0;background:#050307eF;z-index:10;display:none;align-items:center;justify-content:center;padding:18px}
+.choicebox{max-width:420px;width:100%;background:#1d1019;border:1px solid var(--gold);border-radius:20px;padding:28px;text-align:center}
+.choicebox button{display:block;width:100%;margin:12px 0}
+.small{font-size:11px;color:#bda7a8}
+footer{text-align:center;margin:45px 0 0;color:#bba1a1;font-size:11px;letter-spacing:2px}
+@media(min-width:650px){.calendar{grid-template-columns:repeat(5,minmax(0,1fr))}.day{min-height:135px}}
 </style>
 </head>
-
 <body>
 
-<div class="ambience"></div>
-<div class="particles" id="particles"></div>
-
-<!-- INVITACIÓN -->
-
-<section class="screen active" id="invitation">
-<div class="invitation-content">
-<div class="production-label">UNA INVITACIÓN MUY ESPECIAL</div>
-<div class="invitation-symbol">✉</div>
-<h1>TIENES UNA<br>INVITACIÓN<br>PENDIENTE</h1>
-<p class="intro-text">
-Hay algo que alguien ha preparado especialmente para ti.
-Una historia que todavía no conoces y un secreto que
-espera ser descubierto.
-</p>
-<div class="recipient">PARA: VALERIA PETRO VILLAZÓN</div>
-<button class="gold-button" onclick="showScreen('envelope-screen')">
-DESCUBRIR INVITACIÓN
-</button>
-<p class="small-note">NOVIEMBRE · 2026</p>
-</div>
+<section id="invitation" class="screen active">
+ <div class="panel">
+  <div class="eyebrow">Una invitación que solo el corazón comprende</div>
+  <h1>Hay algo que<br><span class="gold">quiero mostrarte...</span></h1>
+  <p>Entre tantos días, recuerdos y pequeños secretos, guardé un lugar que tiene tu nombre.</p>
+  <p>Esta noche ha llegado una invitación especial para ti.</p>
+  <button class="action" onclick="goTo('envelope')">Descubrir invitación</button>
+ </div>
 </section>
 
-<!-- SOBRE -->
-
-<section class="screen" id="envelope-screen">
-<div class="envelope-content">
-<div class="production-label">CORRESPONDENCIA CONFIDENCIAL</div>
-<h2>Una última cosa antes de comenzar...</h2>
-<p>Alguien ha dejado un mensaje esperando a que lo descubras.</p>
-<div class="envelope" id="envelope" onclick="openEnvelope()">
-<div class="envelope-flap"></div>
-<div class="seal">♡</div>
-</div>
-<p class="envelope-hint" id="envelope-hint">TOCA EL SOBRE PARA ABRIRLO</p>
-<p class="small-note">Algunas historias merecen ser descubiertas.</p>
-</div>
+<section id="envelope" class="screen">
+ <div class="panel">
+  <div class="eyebrow">Para la persona que inspira esta historia</div>
+  <div class="envelope">✉️</div>
+  <h2>Un mensaje para ti</h2>
+  <p>Hay palabras que merecen abrirse despacio...</p>
+  <button class="action" onclick="reveal()">Abrir el sobre</button>
+ </div>
 </section>
 
-<!-- REVELACIÓN -->
-
-<section class="screen" id="reveal">
-<div class="cinema"></div>
-<div class="curtain left"></div>
-<div class="curtain right"></div>
-<div class="reveal-content">
-<div class="film-label">UNA PRODUCCIÓN EXCLUSIVA</div>
-<h1>EL SECRETO<br>DETRÁS DE<br>NOSOTROS</h1>
-<p class="tagline">«No todas las historias revelan sus secretos desde el principio...»</p>
-<div class="credits">
-PROTAGONISTA: VALERIA<br>
-UNA HISTORIA DE JUAN<br>
-NOVIEMBRE 2026
-</div>
-<button class="gold-button" id="continue-button" onclick="showScreen('main')">
-ENTRAR EN LA HISTORIA
-</button>
-</div>
+<section id="reveal" class="screen">
+ <div class="panel">
+  <div class="eyebrow">Una historia escrita con amor</div>
+  <h1>EL SECRETO<br><span class="gold">DETRÁS DE NOSOTROS</span></h1>
+  <p>Treinta días. Muchas palabras. Dos maneras de decirte cuánto significas para mí.</p>
+  <p class="gold">Una carta y un poema esperan por ti en cada día.</p>
+  <button class="action" onclick="goTo('main')">Entrar a nuestro secreto</button>
+ </div>
 </section>
 
-<!-- PANEL PRINCIPAL -->
+<main id="main" class="screen">
+ <div class="hero">
+  <div class="sub">NOVIEMBRE · 2026</div>
+  <h1>El secreto detrás<br><span class="gold">de nosotros</span></h1>
+  <p>Donde cada día guarda unas palabras para ti. Abre las huellitas que el tiempo vaya revelando.</p>
+  <div class="legend">✦ Cada día contiene una carta y un poema · Los días futuros permanecen bajo llave ✦</div>
+ </div>
+ <div id="calendar" class="calendar"></div>
+ <footer>HECHO CON AMOR · JUAN KALETH MENDOZA PRIMERA</footer>
+</main>
 
-<section class="screen" id="main">
-<div class="main-container">
-
-<header class="main-header">
-<div class="overline">UNA PRODUCCIÓN EXCLUSIVA</div>
-<h1>EL SECRETO<br>DETRÁS DE NOSOTROS</h1>
-<p>Una historia que se escribe con cada día que vivimos.</p>
-</header>
-
-<div class="main-message">
-<div class="quote">
-«No quiero contarte una historia que todavía no ha sucedido.
-Quiero guardar aquí cada pedacito de lo que vivimos».
+<div id="choice">
+ <div class="choicebox">
+  <div class="eyebrow">Un día de nuestra historia</div>
+  <h2 id="choiceTitle">Día</h2>
+  <p>¿Qué deseas descubrir primero?</p>
+  <button class="action" id="letterBtn">♡ Leer la carta</button>
+  <button class="action" id="poemBtn">✧ Leer el poema</button>
+  <button class="action" onclick="closeChoice()">Volver al calendario</button>
+ </div>
 </div>
-<small>MENSAJE DEL DIRECTOR</small>
-</div>
-
-<div class="section-heading">LOS CUATRO ACTOS</div>
-
-<div class="acts">
-<div class="act">
-<div class="number">ACTO I · 01—07</div>
-<h3>Los primeros capítulos</h3>
-<p>Siete días, siete oportunidades para guardar lo que vivimos.</p>
-</div>
-<div class="act">
-<div class="number">ACTO II · 08—14</div>
-<h3>Lo que vamos sintiendo</h3>
-<p>Las emociones y los momentos que nos acompañen.</p>
-</div>
-<div class="act">
-<div class="number">ACTO III · 15—23</div>
-<h3>Nuestra historia continúa</h3>
-<p>Todo aquello que todavía nos queda por compartir.</p>
-</div>
-<div class="act">
-<div class="number">ACTO IV · 24—30</div>
-<h3>Un mes para recordar</h3>
-<p>Los últimos capítulos de noviembre, escritos por nosotros.</p>
-</div>
-</div>
-
-<div class="section-heading">NUESTRO ARCHIVO DE RECUERDOS</div>
-<div class="scene-grid" id="scene-grid"></div>
-
-<div class="progress-info" id="progress-info">0 DE 30 DÍAS DESBLOQUEADOS</div>
-<div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
-
-<footer class="main-footer">
-<p>
-Cada día tendrá dos pequeños regalos.<br>
-Una carta y un poema nacidos de nuestro amor.
-</p>
-<strong>JUAN & VALERIA</strong>
-<p style="margin-top:15px">NOVIEMBRE · 2026</p>
-</footer>
-
-</div>
-</section>
-
-<!-- VENTANA DE LOS DOS REGALOS -->
-
-<div class="modal" id="scene-modal" onclick="closeModalOutside(event)">
-<div class="modal-box" id="modal-box">
-
-<div class="modal-symbol">✦</div>
-<div class="modal-day" id="modal-day"></div>
-
-<!-- MENÚ DE CARTA Y POEMA -->
-
-<div id="gift-menu">
-<h2>Dos pequeños regalos para ti</h2>
-<div class="modal-nickname">
-Porque hay sentimientos que merecen más de una forma de expresarse.
-</div>
-
-<div class="gift-options">
-
-<button class="gift-button" onclick="showEntry('letter')">
-<span class="gift-icon">💌</span>
-<strong>NUESTRA CARTA</strong>
-<small>Una historia escrita desde el corazón</small>
-<span class="gift-status" id="letter-status">PENDIENTE</span>
-</button>
-
-<button class="gift-button" onclick="showEntry('poem')">
-<span class="gift-icon">🥀</span>
-<strong>NUESTRO POEMA</strong>
-<small>Un universo de sentimientos en versos</small>
-<span class="gift-status" id="poem-status">PENDIENTE</span>
-</button>
-
-</div>
-</div>
-
-<!-- LECTURA INDIVIDUAL -->
-
-<div id="entry-view" class="entry-content">
-<div class="entry-label" id="entry-type"></div>
-<h2 id="modal-title"></h2>
-<div class="modal-nickname" id="modal-nickname"></div>
-<img class="modal-photo" id="modal-photo" alt="Un recuerdo especial">
-<div class="modal-body" id="modal-body"></div>
-<div class="modal-signature" id="modal-signature"></div>
-
-<div id="pending-content" style="display:none">
-<div class="pending-icon">✉</div>
-<p class="pending-message" id="pending-message"></p>
-</div>
-
-<button class="back-button" onclick="backToGifts()">
-← VOLVER A LOS DOS REGALOS
-</button>
-</div>
-
-<button class="gold-button" onclick="closeModal()" style="margin-top:20px">
-VOLVER A NUESTRA HISTORIA
-</button>
-
-</div>
-</div>
+<div class="curtain" id="curtain"></div>
 
 <script>
+// PEGA AQUÍ LOS ENLACES DE CADA REPOSITORIO.
+// No cambies las fechas ni los números de día.
+// Ejemplo: letter: "https://TUUSUARIO.github.io/nombre-repositorio/"
 
-/* =================================
-   CARTAS DIARIAS
-================================== */
-
-const dailyLetters = {
-
-1:{
-title:"DONDE NOVIEMBRE COMIENZA CON TU NOMBRE",
-nickname:"Mi refugio favorito entre todos los días",
-body:`Mi amor hermoso:
-
-¡Bienvenida a un nuevo mes, mi niña preciosa! ❤️ Y, sobre todo, bienvenida a una nueva aventura que he preparado con muchísimo cariño para nosotros: El secreto detrás de nosotros. Quiero que este pequeño rincón se convierta en un lugar donde podamos guardar nuestros recuerdos, nuestros sentimientos, nuestras sonrisas y cada pedacito de esta historia tan bonita que seguimos construyendo juntos.
-
-Hoy comienza noviembre y, aunque me hace mucha ilusión empezar este proyecto contigo, también debo confesarte que ya te estoy extrañando. Sé que hoy no podremos vernos, y no sabes cuánto quisiera que fuera diferente. Me encantaría tenerte aquí conmigo, abrazarte muy fuerte, acomodarnos juntitos, elegir una película y pasar horas disfrutando de esos momentos sencillos que, cuando son a tu lado, se convierten en mis favoritos.
-
-A veces no necesitamos grandes planes ni lugares especiales. Me basta con imaginarte entre mis brazos, sentir tu calorcito y compartir contigo una película, incluso si terminamos prestándole más atención a nuestros abrazos que a la pantalla. Qué bonito sería tenerte cerquita hoy.
-
-Pero, aunque esta vez no podamos compartir el domingo de esa manera, quiero que sepas que mi cariño te acompaña. La distancia de unas horas no cambia las ganas que tengo de verte ni lo mucho que significas para mí.
-
-Espero que este nuevo mes nos regale momentos hermosos, nuevas razones para sonreír y recuerdos que algún día podamos volver a leer con una sonrisa. No sé exactamente qué nos espera en noviembre, pero sí sé que quiero seguir descubriéndolo contigo, un día a la vez.
-
-Te amo muchísimo, mi niña. Gracias por ser parte de mi historia y por permitirme hacerte un espacio tan especial dentro de ella.
-
-Con todo mi amor, siempre.
-
-JUAN KALETH MENDOZA PRIMERA ❤️
-Para mi amada VALERIA PETRO VILLAZÓN`,
-signature:"CON TODO MI AMOR\nJUAN KALETH MENDOZA PRIMERA"
-},
-
-2:{
-title:"DONDE MI AMOR TE ACOMPAÑA HASTA EL ÚLTIMO MOMENTO DE TU JORNADA",
-nickname:"Mi pequeña razón para preocuparme incluso cuando no estoy a tu lado",
-body:`Mi princesa hermosa:
-
-Hoy fue domingo y no sabes cuánto te extrañé. Cuando me contaste que te tocaba trabajar durante la noche en el petshop, lo único que deseaba era que tu jornada fuera tranquilita y que no tuvieras demasiado trabajo. Pero, al parecer, me equivoqué un poquito, preciosa, porque esos dos perritos cansoncitos decidieron ponerte a prueba y te tuvieron casi 40 o 50 minutos alimentándolos. 🥺
-
-Ojalá los otros cinco perritos se hayan portado mucho mejor contigo y no te hayan dado tantos problemas, mi niña. Sé que algunas jornadas pueden ser agotadoras, y aunque no pueda estar allí para ayudarte, quiero que sepas que me importa muchísimo cómo te encuentras y cómo termina cada una de tus noches.
-
-Anoche, antes de descansar, tuve un deseo muy especial: que pudieras dormir bien allí en el petshop, que la noche transcurriera tranquilamente y que no tuvieras que pasar por más sustos como aquel de la vez pasada. Quería imaginarte descansando, sintiéndote segura y sin ninguna preocupación.
-
-Y ahora que comienza una nueva mañana, mi deseo es que tengas un día bonito, que el camino hacia tu casita sea seguro y que puedas llegar tranquilita para descansar todo lo que necesites. Te mereces una mañana llena de calma después de una jornada que espero que no te haya dejado demasiado cansadita.
-
-Por cierto, pronto terminaré de leer esos capítulos de Amanecer en la cosecha que tengo pendientes. Y ¿sabes qué? Pensándolo bien, ya no quiero una pizza como habíamos imaginado… creo que prefiero mil veces tus besitos y tus abrazos. 😁❤️
-
-Te extraño muchísimo, preciosa. Ojalá pudiera tenerte cerquita ahora mismo, pero mientras llega ese momento, quiero que mis palabras te recuerden cuánto te amo y lo importante que es para mí que estés bien.
-
-Que tengas un hermoso día, mi princesa. Te amo demasiado. ❤️
-
-JUAN KALETH MENDOZA PRIMERA ❤️
-Para mi amada VALERIA PETRO VILLAZÓN`,
-signature:"CON TODO MI AMOR\nJUAN KALETH MENDOZA PRIMERA"
-}
-
+const links = {
+  1: {
+    letter: "PEGA_AQUI_EL_LINK_DE_LA_CARTA_DEL_DIA_1",
+    poem: "PEGA_AQUI_EL_LINK_DEL_POEMA_DEL_DIA_1"
+  },
+  2: {
+    letter: "PEGA_AQUI_EL_LINK_DE_LA_CARTA_DEL_DIA_2",
+    poem: "PEGA_AQUI_EL_LINK_DEL_POEMA_DEL_DIA_2"
+  },
+  3: { letter: "", poem: "" },
+  4: { letter: "", poem: "" },
+  5: { letter: "", poem: "" },
+  6: { letter: "", poem: "" },
+  7: { letter: "", poem: "" },
+  8: { letter: "", poem: "" },
+  9: { letter: "", poem: "" },
+  10: { letter: "", poem: "" },
+  11: { letter: "", poem: "" },
+  12: { letter: "", poem: "" },
+  13: { letter: "", poem: "" },
+  14: { letter: "", poem: "" },
+  15: { letter: "", poem: "" },
+  16: { letter: "", poem: "" },
+  17: { letter: "", poem: "" },
+  18: { letter: "", poem: "" },
+  19: { letter: "", poem: "" },
+  20: { letter: "", poem: "" },
+  21: { letter: "", poem: "" },
+  22: { letter: "", poem: "" },
+  23: { letter: "", poem: "" },
+  24: { letter: "", poem: "" },
+  25: { letter: "", poem: "" },
+  26: { letter: "", poem: "" },
+  27: { letter: "", poem: "" },
+  28: { letter: "", poem: "" },
+  29: { letter: "", poem: "" },
+  30: { letter: "", poem: "" }
 };
 
-
-/* =================================
-   POEMAS DIARIOS
-================================== */
-
-const dailyPoems = {
-
-1:{
-title:"UN DOMINGO CON TU AUSENCIA Y MI AMOR",
-nickname:"Mi estrella en cada rincón de mi silencio",
-body:`Aunque hoy no pueda tenerte
-cerquita de mi corazón,
-hay un lugar donde siempre te encuentro:
-en mis pensamientos, mi amor.
-
-Imagino tus manos entre las mías,
-tu sonrisa iluminando el lugar,
-una película pasando lentamente
-y mis brazos sin querer soltarte jamás.
-
-Qué bonito sería este domingo
-si pudiera abrazarte sin mirar el reloj,
-si el mundo se quedara quietecito
-mientras descansamos juntos los dos.
-
-Pero incluso en esta pequeña distancia,
-mi cariño no deja de florecer;
-porque no necesito tenerte enfrente
-para elegirte una y otra vez.
-
-Y si hoy mis brazos no pueden cuidarte,
-que mis palabras te sepan abrazar.
-Que recuerdes que, en cada día de noviembre,
-mi corazón te vuelve a encontrar.`,
-photo:""
-},
-
-2:{
-title:"MIENTRAS LA NOCHE TE CUIDA, MI CORAZÓN TE ESPERA",
-nickname:"Mi dulce lucerito de las horas lejanas",
-body:`Hay noches en las que quisiera
-convertirme en una estrella,
-para quedarme sobre tu cielo
-y acompañarte mientras trabajas.
-
-Ser la calma de tus cansancios,
-la tranquilidad de tus pensamientos,
-y una pequeña luz encendida
-cuando se alarguen demasiado los momentos.
-
-Quisiera regalarte mañanas suaves,
-de esas que no conocen las prisas,
-donde el descanso te encuentre primero
-y después te despierte una sonrisa.
-
-Que ningún camino te robe la calma,
-que ningún temor vuelva a aparecer,
-que la vida sea amable contigo
-y siempre tengas motivos para sonreír.
-
-Y cuando por fin llegue ese instante
-en que podamos estar juntos otra vez,
-no habrá regalo que quiera más
-que perderme en tus abrazos y tus besos.
-
-Porque aunque no pueda acompañarte
-en cada paso que tengas que dar,
-hay un corazón que te piensa en silencio
-y que nunca se cansa de amar.`,
-photo:""
+function goTo(id){
+ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo(0,0);
 }
-
-};
-
-
-/* =================================
-   PARTÍCULAS CINEMATOGRÁFICAS
-================================== */
-
-const particles=document.getElementById("particles");
-
-for(let i=0;i<35;i++){
-const p=document.createElement("div");
-p.className="particle";
-p.style.left=Math.random()*100+"%";
-p.style.top=Math.random()*100+"%";
-p.style.animationDelay=Math.random()*8+"s";
-p.style.animationDuration=(6+Math.random()*8)+"s";
-particles.appendChild(p);
+function reveal(){
+ const c=document.getElementById('curtain');
+ c.style.display='block';
+ requestAnimationFrame(()=>c.classList.add('open'));
+ setTimeout(()=>{c.style.display='none';c.classList.remove('open');goTo('reveal')},1400);
 }
-
-
-/* =================================
-   CAMBIO DE PANTALLAS
-================================== */
-
-function showScreen(id){
-
-document.querySelectorAll(".screen").forEach(screen=>{
-screen.classList.remove("active");
-});
-
-document.getElementById(id).classList.add("active");
-window.scrollTo({top:0,behavior:"smooth"});
-
-if(id==="main")buildScenes();
-
+function isNovember2026(){
+ const now=new Date();
+ return now.getFullYear()===2026 && now.getMonth()===10;
 }
-
-
-/* =================================
-   APERTURA DEL SOBRE
-================================== */
-
-let envelopeOpened=false;
-
-function openEnvelope(){
-
-if(envelopeOpened)return;
-
-envelopeOpened=true;
-document.getElementById("envelope").classList.add("open");
-
-document.getElementById("envelope-hint").textContent=
-"EL MENSAJE HA SIDO REVELADO...";
-
-setTimeout(()=>{
-showScreen("reveal");
-
-setTimeout(()=>{
-document.getElementById("reveal").classList.add("opened");
-},300);
-
-},1200);
-
+function buildCalendar(){
+ const calendar=document.getElementById('calendar');
+ const now=new Date();
+ const unlockedDay=isNovember2026()?now.getDate():0;
+ for(let day=1;day<=30;day++){
+  const unlocked=day<=unlockedDay;
+  const item=links[day]||{letter:'',poem:''};
+  const hasAny=!!(item.letter||item.poem);
+  const card=document.createElement('div');
+  card.className='day '+(unlocked?'unlocked':'locked');
+  const button=document.createElement('button');
+  button.disabled=!unlocked;
+  button.innerHTML='<div class="number">'+String(day).padStart(2,'0')+'</div><div class="date">'+new Date(2026,10,day).toLocaleDateString('es-CO',{weekday:'long'})+'</div><div class="status">'+(unlocked?(hasAny?'✦ Abrir recuerdos':'Próximamente'):'🔒 Aún no es el día')+'</div>';
+  if(unlocked && hasAny) button.onclick=()=>openChoice(day);
+  card.appendChild(button);
+  calendar.appendChild(card);
+ }
 }
-
-
-/* =================================
-   FECHA Y DESBLOQUEO
-================================== */
-
-function getAvailableDay(){
-
-const now=new Date();
-
-const start=new Date(2026,10,1,0,0,0);
-const end=new Date(2026,10,30,23,59,59);
-
-if(now<start)return 0;
-if(now>end)return 30;
-
-return now.getDate();
-
+function openChoice(day){
+ const item=links[day];
+ document.getElementById('choiceTitle').textContent='Día '+day+' de noviembre';
+ const lb=document.getElementById('letterBtn');
+ const pb=document.getElementById('poemBtn');
+ lb.disabled=!item.letter;
+ pb.disabled=!item.poem;
+ lb.style.opacity=item.letter?'1':'.35';
+ pb.style.opacity=item.poem?'1':'.35';
+ lb.onclick=()=>openPage(item.letter);
+ pb.onclick=()=>openPage(item.poem);
+ document.getElementById('choice').style.display='flex';
 }
-
-
-/* =================================
-   CONSTRUIR LAS 30 CASILLAS
-================================== */
-
-function buildScenes(){
-
-const grid=document.getElementById("scene-grid");
-grid.innerHTML="";
-
-const currentDay=getAvailableDay();
-
-let available=0;
-let lettersPublished=0;
-let poemsPublished=0;
-
-for(let day=1;day<=30;day++){
-
-const unlocked=day<=currentDay;
-const hasLetter=unlocked && !!dailyLetters[day];
-const hasPoem=unlocked && !!dailyPoems[day];
-
-if(unlocked)available++;
-if(hasLetter)lettersPublished++;
-if(hasPoem)poemsPublished++;
-
-const button=document.createElement("button");
-button.className="scene";
-button.disabled=!unlocked;
-
-let icon="🔒";
-let status="BLOQUEADA";
-
-if(unlocked && hasLetter && hasPoem){
-icon="✦";
-status="CARTA + POEMA";
+function openPage(url){
+ if(!url || url.startsWith('PEGA_AQUI')) return;
+ window.open(url,'_blank','noopener');
 }
-else if(unlocked && hasLetter){
-icon="💌";
-status="CARTA DISPONIBLE";
-}
-else if(unlocked && hasPoem){
-icon="🥀";
-status="POEMA DISPONIBLE";
-}
-else if(unlocked){
-icon="✉";
-status="PENDIENTE";
-}
-
-button.innerHTML=`
-<div class="scene-icon">${icon}</div>
-<strong>${String(day).padStart(2,"0")}</strong>
-<span>${status}</span>
-`;
-
-if(unlocked){
-button.addEventListener("click",()=>openScene(day));
-}
-
-grid.appendChild(button);
-
-}
-
-document.getElementById("progress-info").textContent=
-available+" DE 30 DÍAS DESBLOQUEADOS · "+
-lettersPublished+" CARTAS · "+
-poemsPublished+" POEMAS PUBLICADOS";
-
-document.getElementById("progress-fill").style.width=
-(available/30*100)+"%";
-
-}
-
-
-/* =================================
-   ABRIR LOS DOS REGALOS
-================================== */
-
-let selectedDay=1;
-
-function openScene(day){
-
-selectedDay=day;
-
-document.getElementById("modal-day").textContent=
-"NOVIEMBRE · DÍA "+String(day).padStart(2,"0");
-
-document.getElementById("gift-menu").style.display="block";
-document.getElementById("entry-view").classList.remove("active");
-
-document.getElementById("letter-status").textContent=
-dailyLetters[day]?"✦ DISPONIBLE":"✉ POR ESCRIBIR";
-
-document.getElementById("poem-status").textContent=
-dailyPoems[day]?"✦ DISPONIBLE":"✉ POR ESCRIBIR";
-
-document.getElementById("scene-modal").classList.add("active");
-
-}
-
-
-/* =================================
-   MOSTRAR CARTA O POEMA
-================================== */
-
-function showEntry(type){
-
-const isLetter=type==="letter";
-
-const content=isLetter
-?dailyLetters[selectedDay]
-:dailyPoems[selectedDay];
-
-document.getElementById("gift-menu").style.display="none";
-document.getElementById("entry-view").classList.add("active");
-
-document.getElementById("entry-type").textContent=
-isLetter?"💌 NUESTRA CARTA":"🥀 NUESTRO POEMA";
-
-const title=document.getElementById("modal-title");
-const nickname=document.getElementById("modal-nickname");
-const body=document.getElementById("modal-body");
-const photo=document.getElementById("modal-photo");
-const signature=document.getElementById("modal-signature");
-const pending=document.getElementById("pending-content");
-
-title.textContent="";
-nickname.textContent="";
-body.innerHTML="";
-signature.textContent="";
-
-photo.removeAttribute("src");
-photo.style.display="none";
-
-if(content){
-
-title.textContent=content.title||
-(isLetter?"Una carta para ti":"Un poema para ti");
-
-nickname.textContent=content.nickname||"";
-
-const paragraphs=(content.body||"").split(/\n\s*\n/);
-
-paragraphs.forEach(text=>{
-if(text.trim()){
-const p=document.createElement("p");
-p.textContent=text.trim();
-body.appendChild(p);
-}
-});
-
-if(content.photo){
-
-photo.src=content.photo;
-photo.style.display="block";
-
-photo.onerror=()=>{
-photo.style.display="none";
-};
-
-}
-
-signature.textContent=content.signature||
-"CON TODO MI AMOR\nJUAN KALETH MENDOZA PRIMERA";
-
-pending.style.display="none";
-body.style.display="block";
-
-}else{
-
-title.textContent=isLetter
-?"Esta carta aún está por escribirse"
-:"Este poema todavía está esperando sus versos";
-
-nickname.textContent="";
-body.style.display="none";
-signature.textContent="";
-
-document.getElementById("pending-message").textContent=
-isLetter
-?"Esta carta tendrá palabras basadas en lo que realmente vivamos. Cuando esté preparada, podrás leerla aquí."
-:"Este poema tendrá sus propios versos, su propio título y su propia esencia. Pronto estará aquí para ti.";
-
-pending.style.display="block";
-
-}
-
-}
-
-
-/* =================================
-   VOLVER A LOS DOS REGALOS
-================================== */
-
-function backToGifts(){
-
-document.getElementById("entry-view").classList.remove("active");
-document.getElementById("gift-menu").style.display="block";
-
-}
-
-
-/* =================================
-   CERRAR VENTANA
-================================== */
-
-function closeModal(){
-
-document.getElementById("scene-modal").classList.remove("active");
-
-}
-
-function closeModalOutside(event){
-
-if(event.target.id==="scene-modal"){
-closeModal();
-}
-
-}
-
-document.addEventListener("keydown",event=>{
-
-if(event.key==="Escape"){
-closeModal();
-}
-
-});
-
-
-/* =================================
-   ACTUALIZAR CASILLAS
-================================== */
-
-buildScenes();
-
+function closeChoice(){document.getElementById('choice').style.display='none'}
+buildCalendar();
 </script>
-
 </body>
 </html>
